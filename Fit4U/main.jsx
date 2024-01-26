@@ -1,5 +1,5 @@
 import './style.css'
-import React from 'react'
+import React, {useEffect} from 'react'
 import {createBrowserRouter, RouterProvider, createRoutesFromElements, Route, defer} from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import ProtectedPage from './src/pages/protectedPage';
@@ -7,6 +7,8 @@ import LoginPage from './src/pages/loginPage';
 import AuthPage from './src/pages/authPage';
 import UnauthPage from './src/pages/unauthPage';
 import LandingPage from './src/pages/landingPage';
+
+
 
 /*
 const getUserData = () =>
