@@ -1,10 +1,11 @@
 import React from 'react'
-import '../Styles/landingpage.css'
+import '../Styles/createworkout.css'
 
 const CreateWorkout = () => {
     return (
         <div> 
             <div className = "cnw-wrapper">
+                <h2>Create a new workout</h2>
                 <div className = "button-wrapper">
                     <button></button>  
                 </div>
