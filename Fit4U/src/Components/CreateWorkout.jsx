@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Styles/createworkout.css'
+import '../Styles/landingpage.css'
 
 const CreateWorkout = () => {
     return (
