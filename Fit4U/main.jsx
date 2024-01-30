@@ -7,6 +7,7 @@ import LoginPage from './src/pages/loginPage';
 import AuthPage from './src/pages/authPage';
 import UnauthPage from './src/pages/unauthPage';
 import LandingPage from './src/pages/landingPage';
+import NewWorkout from './src/pages/NewWorkout'
 
 
 
@@ -33,8 +34,12 @@ export const router = createBrowserRouter(
 
       <Route element={<ProtectedPage />}>
         <Route path="/app" element={<LandingPage />} /> 
-
       </Route>
+
+      <Route element={<ProtectedPage />}>
+        <Route path="/newworkout" element={<NewWorkout />} /> 
+      </Route>
+
 
     </Route>
   
