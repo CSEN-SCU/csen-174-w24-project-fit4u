@@ -1,11 +1,11 @@
 import React from 'react'
-import Create from '../Components/CreateWorkout'
-import View from '../Components/ViewExercises'
+import CreateWorkout from '../Components/CreateWorkout'
+import ViewExercises from '../Components/ViewExercises'
 const LandingPage = () => {
   return (
     <div> 
-      <Create />
-      <View />
+      <CreateWorkout />
+      <ViewExercises />
    </div>
   )
 }

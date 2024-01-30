@@ -7,7 +7,7 @@ const CreateWorkout = () => {
     const [goToNewWorkout, setgoToNewWorkout] = React.useState(false);
 
     if(goToNewWorkout) {
-        return <Navigate to="/newworkout"/>
+        return <Navigate to="/app/newworkout"/>
     }
     return (
         <div> 

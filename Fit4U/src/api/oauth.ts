@@ -2,6 +2,7 @@ import axios from "axios";
 import { camelizeKeys } from "humps";
 import { OAuthCredential, OAuthUrl, Profile } from "./oauthTypes";
 
+
 export type { OAuthCredential, OAuthUrl };
 
 export const TOKEN_KEY = "token";
@@ -42,6 +43,7 @@ export const getGoogleAuthToken = async (credential: OAuthCredential) => {
     headers: { "content-type": "application/x-www-form-urlencoded" },
     withCredentials: true,
   });
+  console.log(response)
   return response.data;
 };
 

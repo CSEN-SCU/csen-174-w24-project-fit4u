@@ -7,7 +7,7 @@ const useGoogleAuthToken = () =>
     mutationFn: (credential: OAuthCredential) => getGoogleAuthToken(credential),
     onSuccess: (data) => {
       const { access } = data;
-      localStorage.setItem(TOKEN_KEY, access);
+      localStorage.setItem("token", access);
     },
   });
 
