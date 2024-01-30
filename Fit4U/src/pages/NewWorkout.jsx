@@ -1,8 +1,9 @@
 import React from 'react'
+import LogWorkout from '../Components/LogWorkout'
 const NewWorkout = () => {
     return (
       <div> 
-        <h1> Was good</h1>
+        <LogWorkout />
      </div>
     )
   }
