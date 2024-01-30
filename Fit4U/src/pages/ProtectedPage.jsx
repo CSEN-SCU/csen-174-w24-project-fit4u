@@ -18,7 +18,7 @@ const ProtectedPage = () => {
         {display}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProtectedPage
+export default ProtectedPage;
