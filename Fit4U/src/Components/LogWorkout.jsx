@@ -4,32 +4,42 @@ import '../Styles/logworkout.css'
 
 export default function LogWorkout({ onAdd }) {
     const [title, setTitle] = useState('');
-    const [ex, setEx] = useState([]);
+    const [table, setTable] = useState([]);
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        if (!title || !ex) { //!ex doens't work rn
-            alert("Need to give a name");
-            return; 
-        }
-        setTitle(''); //Clear Title
-        setEx([]);      //Clear Exercise
+    const createTable = () =>{
+      setTable([...table,<table>
+      <thead>
+       <tr>
+           <th>Set</th>
+           <th>Reps</th>
+            <th>Vol</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+           <th>1</th>
+           <th>Rep Input</th>
+            <th>Vol Input</th>       
+        </tr>    
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Add Row</th>
+        </tr>
+      </tfoot>
+
+      </table>])
     }
 
-
-    const handleChange = (ex) => {
-        setEx(ex || []);
-      };
-    const options = [
-        { label: 'E1', value: 'Bicep' },
-
-        { label: 'E2', value: 'Tricep' },
-     
-        { label: 'E3', value: 'Quads' },
-      ];
-
+    function handleSubmit(e) { 
+        e.preventDefault();
+        if (!title || setTable([])) { 
+            return; 
+        } 
+        setTitle(''); //Clear Title
+        setTable([]);
+    }
     
-   
     
 
     return(
@@ -49,7 +59,35 @@ export default function LogWorkout({ onAdd }) {
     </div>
 
     <div className="Select-Wrapper">
-      <Select 
+        <button onClick={createTable} style={{marginTop: "20px"}}>Add Exercises </button>
+        {table}
+     </div>
+    </form>
+    );
+}
+
+
+
+/* Multi-add Menu 
+ setEx([]);      //Clear Exercise
+const [ex, setEx] = useState([]); 
+
+const options = [
+        { label: 'E1', value: 'Bicep' },
+
+        { label: 'E2', value: 'Tricep' },
+     
+        { label: 'E3', value: 'Quads' },
+      ];
+
+      const handleChange = (ex) => {
+        setEx(ex || []);
+      }; //makes blank every reload
+  
+
+    
+   
+   <Select 
         options = {options}
         onChange ={handleChange}
         placeholder="Add Exercise"
@@ -69,11 +107,8 @@ export default function LogWorkout({ onAdd }) {
         value={ex}
         isMulti
         />
-     </div>
-    </form>
-    );
-}
 
+        */
 /*  <p>We do {value}!</p>  
 
  <Dropdown label ="What do we eat?" options={options} value={value} onChange={handleChange} />
