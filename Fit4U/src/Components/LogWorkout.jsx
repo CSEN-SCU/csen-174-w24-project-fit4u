@@ -4,9 +4,77 @@ import '../Styles/logworkout.css'
 
 export default function LogWorkout({ onAdd }) {
     const [title, setTitle] = useState('');
-    const [table, setTable] = useState([]);
 
-    const createTable = () =>{
+    function handleSubmit(e) { 
+        e.preventDefault();
+        if (!title || setTable([])) { 
+            return; 
+        } 
+        setTitle(''); //Clear Title
+       
+    }
+    
+
+    return(
+    <form onSubmit={handleSubmit} >
+      
+    <div className="WorkoutTitle-Wrapper">
+      <input
+        className="WorkoutInputs"
+        placeholder="Workout Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      </div>
+
+    <div className="SaveButton-Wrapper">
+      <button type="submit" className="SaveButton"> Save Workout </button>
+    </div>
+
+    <div className="Select-Wrapper">
+        <button>Add Exercises </button>
+      
+     </div>
+    </form>
+    );
+}
+
+
+
+/* Table Attempt
+    const [table, setTable] = useState([]); 
+ const [exercises, setExercises] = useState([]);
+
+
+    const displayExercises = table.map((table, i) =>
+      <table>
+        <h1>{table.exercisename}</h1>
+      <thead>
+       <tr>
+           <th>Set</th>
+           <th>Reps</th>
+            <th>Vol</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+           <th>1</th>
+           <th>Rep Input</th>
+            <th>Vol Input</th>       
+        </tr>    
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Add Row</th>
+        </tr>
+      </tfoot>
+
+      </table>
+    
+      
+    );
+ setTable([]);
+  const createTable = () =>{
       setTable([...table,<table>
       <thead>
        <tr>
@@ -31,42 +99,10 @@ export default function LogWorkout({ onAdd }) {
       </table>])
     }
 
-    function handleSubmit(e) { 
-        e.preventDefault();
-        if (!title || setTable([])) { 
-            return; 
-        } 
-        setTitle(''); //Clear Title
-        setTable([]);
-    }
-    
-    
 
-    return(
-    <form onSubmit={handleSubmit} >
-      
-    <div className="WorkoutTitle-Wrapper">
-      <input
-        className="WorkoutInputs"
-        placeholder="Workout Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      </div>
-
-    <div className="SaveButton-Wrapper">
-      <button type="submit" className="SaveButton"> Save Workout </button>
-    </div>
-
-    <div className="Select-Wrapper">
-        <button onClick={createTable} style={{marginTop: "20px"}}>Add Exercises </button>
-        {table}
-     </div>
-    </form>
-    );
-}
-
-
+  {displayExercises}
+  
+*/
 
 /* Multi-add Menu 
  setEx([]);      //Clear Exercise
