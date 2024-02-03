@@ -48,6 +48,6 @@ export const getGoogleAuthToken = async (credential: OAuthCredential) => {
 };
 
 export const getProfile = async () => {
-  const response = await client.get<Profile>("/auth/users/me/");
-  return response.data;
+  //const response = await client.get<Profile>("/auth/users/me/");
+  //return response.data;
 };

@@ -1,46 +1,39 @@
 
-.cnw-wrapper{
+.landing-option-wrapper{
     width: 75%;
-    height: 25%;
-    position: absolute; 
+    position: relative; 
     margin: auto;
     background: #853835;
     text-align: center;
-   
-    top :10vh; left: 0; right: 0; bottom: 10vh;
+    margin-bottom: 2rem;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
 }
-.cnw-wrapper > h2{
+.landing-option-wrapper > h2{
     color: white;
 }
 
-.button-wrapper{
-    width: 75%;
-    height: 50%;
-    position: absolute; 
-    margin: auto;
-    background: #EB0900;
-    top :5vh; left: 0; right: 0; bottom: 0;
-}
 .button-wrapper > button {
-    width: 100%;
+    width: 75%;
     height: 100%;
-    position: absolute; 
+    position: relative; 
     margin: auto;
     background-color: transparent;
     border: 0 px transparent;
-    top :0; left: 0; right: 0; bottom: 0;
+    border-radius: 0px;
+    background: #EB0900;
 }
 
+.landing-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 15vh;
+    height: 85vh;
+    overflow-y: scroll;
+}
 
-.vw-wrapper{
-    width: 75%;
-    height: 25%;
-    position: absolute; 
-    margin: auto;
-    background: #853835;
+.landing-wrapper > h1{
     text-align: center;
-    top :70vh; left: 0; right: 0; bottom: 10vh;
-}
-.vw-wrapper > h2{
-    color: white;
 }

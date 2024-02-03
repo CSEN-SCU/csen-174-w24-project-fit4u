@@ -1,5 +1,6 @@
 import React, {useState, useRef, useEffect} from "react";
 import "../Styles/header.css";
+import { useNavigate } from "react-router";
 import MenuIcon from "/MenuIcon.png?url";
 import UserIcon from "/UserIcon.png?url";
 import Menu from './Menu'
@@ -8,6 +9,7 @@ const Header = () => {
 
   const [menu, setMenu] = useState(false);
   const menuDisplay = useRef();
+  const navigate = useNavigate()
 
   const getMenu = () => {
     return menu
@@ -27,7 +29,7 @@ const Header = () => {
     <div className="wrapper">
       {menuDisplay.current}
       <button onClick={() => setMenu(!menu)}><img id={menu === false? "menu-icon" : "menu-icon-rotated"} src={MenuIcon} /></button>
-      <h1><strong>FIT4U</strong></h1>
+      <button onClick={() => navigate("/app")}><h1><strong>FIT4U</strong></h1></button>
       <button><img src={UserIcon} /></button>
     </div>
   );

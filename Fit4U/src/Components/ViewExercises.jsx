@@ -3,10 +3,10 @@ import '../Styles/landingpage.css'
 const ViewExercises = () => {
     return ( 
         <div> 
-            <div className = "vw-wrapper">
+            <div className = "landing-option-wrapper">
                 <h2>View Exercises</h2>
                 <div className = "button-wrapper">
-                   <button></button>  
+                   <button>Exercises</button>  
             </div>
         </div>
         

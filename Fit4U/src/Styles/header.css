@@ -9,6 +9,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  z-index: 3 !important;
 }
 
 .wrapper > h1{
@@ -19,13 +20,16 @@
   font-style: normal;
   font-weight: 400;
   margin-left: 5%;
+  z-index: 3 !important;
 }
 
 .wrapper > button{
   background-color: transparent;
   border: 0 px transparent;
+  z-index: 3 !important;
 }
 
 #menu-icon-rotated{
   transform: rotate(90deg);
+  z-index: 3 !important;
 }

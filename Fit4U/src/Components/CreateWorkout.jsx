@@ -11,14 +11,14 @@ const CreateWorkout = () => {
     }
     return (
         <div> 
-            <div className = "cnw-wrapper">
+            <div className = "landing-option-wrapper">
                 <h2>Create a new workout</h2>
                 <div className = "button-wrapper">
                     <button
                     onClick={() => {
                         setgoToNewWorkout(true);
                     }}
-                    ></button>  
+                    >New Workout</button>  
                 </div>
             </div>
             

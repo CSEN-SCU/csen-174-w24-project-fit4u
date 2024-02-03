@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import { useOutlet, useNavigate } from "react-router";
+import { useSearchParams } from "react-router-dom";
 
 import useGoogleAuthLink from "../hooks/useGoogleAuthLink";
 import useGoogleAuthToken from "../hooks/useGoogleAuthToken";
@@ -9,7 +10,24 @@ const AuthPage = () => {
   //const {user} = useAuth();
   const outlet = useOutlet();
 
+  const [searchParams] = useSearchParams();
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if(searchParams.get("token")){
+      localStorage.setItem("token", searchParams.get("token"));
+    }
+  }, [searchParams])
+
+  useEffect(() => {
+    if(localStorage.getItem("token") != null){
+      navigate('/app')
+    }else{
+      navigate('/login')
+    }
+  }, [localStorage.getItem("token")])
+
 
     const { data: profile, refetch: fetchProfile } = useProfile();
     const { data: googleAuth, refetch: fetchGoogleAuth } = useGoogleAuthLink();
@@ -34,6 +52,7 @@ const AuthPage = () => {
 
     useEffect(() => {
       if (isSuccess) {
+        console.log("Success!")
         fetchProfile();
       }
     }, [isSuccess, fetchProfile]);
@@ -48,16 +67,17 @@ const AuthPage = () => {
       fetchGoogleAuth();
     };
 
-    /*useEffect(() => {
+
+    /*
+    useEffect(() => {
       if(profile){
-        navigate('/app');
+        navigate('/app')
       }else{
-        navigate('/login');
+        navigate('/login')
       }
     }, [])
     */
-
-
+ 
 
 
 
