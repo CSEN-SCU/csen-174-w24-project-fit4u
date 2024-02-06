@@ -13,8 +13,32 @@ const getMe = (setMe) => {
   }); 
 }
 
+const getWorkouts = (setWorkouts) => {
+  const fetchPromise = userServices.getAll("api/workout");
+  fetchPromise.then(response => {
+    console.log(response)
+    setWorkouts(response.data.workouts)
+    return response.data
+  })
+  .catch((e) => {
+    console.log(e);
+  }); 
+}
+
+const createWorkout = (data) => {
+  const fetchPromise = userServices.create(data, 'api/workout/');
+  fetchPromise.then(response => {
+    console.log(response)
+    return response.data
+  }).catch((e) => {
+    console.log(e);
+  }); 
+}
+
 const calls = {
-  getMe
+  getMe,
+  getWorkouts,
+  createWorkout
 }
 
 export default calls;

@@ -5,7 +5,7 @@ import '../Styles/menu.css'
 const Menu = ({getMenu}) => {
   return (
     <div className='menu-wrapper'>
-      <Link to="/workouts">
+      <Link to="/app/workouts">
         <div className='menu-item'>
           <h1>WORKOUTS</h1>
         </div>
