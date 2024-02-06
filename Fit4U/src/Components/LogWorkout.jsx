@@ -5,7 +5,7 @@ import calls from '../hooks/calls';
 
 export default function LogWorkout({ onAdd }) {
     const [title, setTitle] = useState('');
-    const [ex, setEx] = useState([]);
+
 
     const datetime = new Date (Date.now())
 
@@ -23,22 +23,8 @@ export default function LogWorkout({ onAdd }) {
         if(data){
           calls.createWorkout(data)
         }
+
     }
-
-
-    const handleChange = (ex) => {
-        setEx(ex || []);
-      };
-    const options = [
-        { label: 'E1', value: 'Bicep' },
-
-        { label: 'E2', value: 'Tricep' },
-     
-        { label: 'E3', value: 'Quads' },
-      ];
-
-    
-   
     
 
     return(
@@ -87,6 +73,7 @@ export default function LogWorkout({ onAdd }) {
     );
 }
 
+        */
 /*  <p>We do {value}!</p>  
 
  <Dropdown label ="What do we eat?" options={options} value={value} onChange={handleChange} />
