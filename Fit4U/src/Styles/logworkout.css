@@ -1,12 +1,16 @@
 .WorkoutTitle-Wrapper {
+    position: absolute; 
     margin: auto;
     text-align: center;
+    top :15vh; left: 0; right: 0; bottom: 0;
+    z-index: 0 !important;
 }
 
 .WorkoutTitle-Wrapper > .WorkoutInputs {
     width: 45vh;
     height: 10vh;
     background-color: #D9D9D9;
+    z-index: 0 !important;
 }
 
 .WorkoutTitle-Wrapper > input::placeholder {
@@ -15,6 +19,7 @@
     font-size: 2.5rem;
     font-family: 'Koulen', sans-serif;
     font-weight: 400;
+    z-index: 0 !important;
 }
 
 .WorkoutTitle-Wrapper > input {
@@ -22,27 +27,21 @@
     font-size: 2.5rem;
     font-family: 'Koulen', sans-serif;
     font-weight: 400;
-}
-
-.SaveButton-Wrapper {
-    margin: auto;
-    text-align: center;
-}
-
-.Select-Wrapper {
-    margin: auto;
-    text-align: center;
     z-index: 0 !important;
 }
 
-.log-workout-wrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    height: 90vh;
-    top: 15vh;
-    justify-content: flex-start;
-    position: fixed;
-    overflow-y: scroll;
+.SaveButton-Wrapper {
+    position: absolute; 
+    margin: auto;
+    text-align: center;
+    top :27vh; left: 29vh; right: 0; bottom: 0;
+    z-index: 0 !important;
+}
+
+.Select-Wrapper {
+    position: absolute; 
+    margin: auto;
+    text-align: center;
+    top :40vh; left: 0; right: 0; bottom: 0;
+    z-index: 0 !important;
 }

@@ -1,13 +1,13 @@
-import React, {useState, useEffect, useRef} from 'react'
-import calls from '../hooks/calls'
-import WorkoutDash from '../Components/WorkoutDash'
+import React, {useState, useEffect} from 'react'
 
 
 const Workouts = () => {
 
+  const [workouts, setWorkouts] = useState(null)
+
   return (
     <div>
-       <WorkoutDash />
+      
     </div>
   )
 }
