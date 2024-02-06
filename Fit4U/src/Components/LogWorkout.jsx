@@ -73,7 +73,7 @@ export default function LogWorkout({ onAdd }) {
     );
 }
 
-        */
+
 /*  <p>We do {value}!</p>  
 
  <Dropdown label ="What do we eat?" options={options} value={value} onChange={handleChange} />
