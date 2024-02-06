@@ -9,7 +9,7 @@ import LandingPage from "./src/pages/landingPage";
 import ReactDOM from "react-dom/client";
 import NewWorkout from './src/pages/NewWorkout'
 import ViewWorkout from './src/pages/ViewWorkout'
-
+import Workouts from "./src/pages/Workouts";
 
 
 export const router = createBrowserRouter(
@@ -23,7 +23,9 @@ export const router = createBrowserRouter(
 
           <Route path="/app" element={<LandingPage />} /> 
 
-          <Route path="/app/newworkout" element={<NewWorkout />} /> 
+          <Route path="/app/newworkout" element={<NewWorkout />} />
+
+          <Route path="/app/workouts" element={<Workouts />} /> 
 
           <Route path="/app/viewworkout" element={<ViewWorkout />} /> 
 
