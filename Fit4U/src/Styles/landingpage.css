@@ -39,6 +39,7 @@
     justify-content: space-between;
     top: 15vh;
     height: 85vh;
+    width: 100vw;
     overflow-y: scroll;
 }
 

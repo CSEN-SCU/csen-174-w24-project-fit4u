@@ -57,12 +57,17 @@
 
 }
 
+.items-wrapper{
+  max-height: 55vh;
+  overflow-y: scroll;
+}
+
 .item-wrapper:nth-child(2n+1){
   background-color: #ffffff;
 }
 
 .item-wrapper:nth-child(2n){
-  background-color: rgba(235, 9, 0, .3);
+  background-color: #ffa1a1;
 }
 
 .item-wrapper:nth-child(2n+1) > div.date-wrapper > p{

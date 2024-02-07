@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import CreateWorkout from '../Components/CreateWorkout'
 import ViewExercises from '../Components/ViewExercises'
 import calls from '../hooks/calls'
+import '../Styles/landingpage.css'
 
 const LandingPage = () => {
 

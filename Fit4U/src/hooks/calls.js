@@ -25,6 +25,18 @@ const getWorkouts = (setWorkouts) => {
   }); 
 }
 
+const getWorkout = (id, setWorkout) => {
+  const fetchPromise = userServices.get(id, "api/workout");
+  fetchPromise.then(response => {
+    console.log(response)
+    setWorkout(response.data.workout)
+    return response.data
+  })
+  .catch((e) => {
+    console.log(e);
+  }); 
+}
+
 const createWorkout = (data) => {
   const fetchPromise = userServices.create(data, 'api/workout/');
   fetchPromise.then(response => {
@@ -35,10 +47,24 @@ const createWorkout = (data) => {
   }); 
 }
 
+const getExercises = (setExercises) => {
+  const fetchPromise = userServices.getAll("api/external-exercises/");
+  fetchPromise.then(response => {
+    console.log(response)
+    setExercises(response.data.exercises)
+    return response.data
+  })
+  .catch((e) => {
+    console.log(e);
+  }); 
+}
+
 const calls = {
   getMe,
   getWorkouts,
-  createWorkout
+  getWorkout,
+  createWorkout,
+  getExercises
 }
 
 export default calls;

@@ -3,7 +3,7 @@ import Select from "react-select"
 import '../Styles/logworkout.css'
 import calls from '../hooks/calls';
 
-export default function LogWorkout({ onAdd }) {
+export default function LogWorkout({ onAdd, setExercisePopup }) {
     const [title, setTitle] = useState('');
     const [ex, setEx] = useState([]);
 
@@ -12,14 +12,14 @@ export default function LogWorkout({ onAdd }) {
     const data = {
       "workout":{
         "datetime":`${datetime.toISOString()}`,
+        "title": `${title}`,
         "exercises": [
           
         ]
       }
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
+    function handleSubmit() {
         if(data){
           calls.createWorkout(data)
         }
@@ -29,13 +29,6 @@ export default function LogWorkout({ onAdd }) {
     const handleChange = (ex) => {
         setEx(ex || []);
       };
-    const options = [
-        { label: 'E1', value: 'Bicep' },
-
-        { label: 'E2', value: 'Tricep' },
-     
-        { label: 'E3', value: 'Quads' },
-      ];
 
     
    
@@ -43,7 +36,6 @@ export default function LogWorkout({ onAdd }) {
 
     return(
     <div className='log-workout-wrapper'>
-      <form onSubmit={handleSubmit} >
         
       <div className="WorkoutTitle-Wrapper">
         <input
@@ -52,37 +44,12 @@ export default function LogWorkout({ onAdd }) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        </div>
-
-      <div className="SaveButton-Wrapper">
-        <button type="submit" className="SaveButton"> Save Workout </button>
       </div>
-
-      <div className="Select-Wrapper">
-        <Select 
-          options = {options}
-          onChange ={handleChange}
-          placeholder="Add Exercise"
-          styles={{
-              control: (provided, state) => ({
-                ...provided,
-                boxShadow: "none",
-                border: "none",
-                backgroundColor: "#853835",
-                color: "black",
-                width:"100%",
-                fontSize: 30,
-                height: "10vh",
-              
-              })
-            }}
-          value={ex}
-          isMulti
-          />
+      <div className='workout-buttons'>
+        <button className="SaveButton"> Save Workout </button>
+        <button onClick={() => setExercisePopup(true)}>Add Exercise</button>
+        <button onClick={() => handleSubmit()}>Submit</button>
       </div>
-
-      <input type="submit" />
-      </form>
     </div>
     );
 }
