@@ -1,0 +1,14 @@
+.workout-wrapper{
+  position: relative;
+  z-index: 1;
+}
+
+.popup{
+  position: absolute;
+  z-index: 2;
+  margin: 0vh 4vw;
+  bottom: 15rem;
+}
+
+
+

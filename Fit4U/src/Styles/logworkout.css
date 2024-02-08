@@ -1,5 +1,4 @@
 .WorkoutTitle-Wrapper {
-    margin: auto;
     text-align: center;
 }
 
@@ -24,25 +23,26 @@
     font-weight: 400;
 }
 
-.SaveButton-Wrapper {
-    margin: auto;
-    text-align: center;
-}
-
-.Select-Wrapper {
-    margin: auto;
-    text-align: center;
-    z-index: 0 !important;
-}
-
 .log-workout-wrapper{
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100vw;
     height: 90vh;
-    top: 15vh;
-    justify-content: flex-start;
-    position: fixed;
     overflow-y: scroll;
+    justify-content: start;
+    position: fixed;
+    top: 15vh;
+}
+
+
+.workout-buttons{
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+}
+
+.workout-buttons > button{
+    background-color: #853835;
+    border-radius: 0rem;
+    margin: 1rem 1rem;
 }

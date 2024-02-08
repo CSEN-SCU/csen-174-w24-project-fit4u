@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import { useOutlet, useNavigate } from "react-router";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useLocation } from "react-router-dom";
 
 import useGoogleAuthLink from "../hooks/useGoogleAuthLink";
 import useGoogleAuthToken from "../hooks/useGoogleAuthToken";
@@ -22,7 +22,10 @@ const AuthPage = () => {
 
   useEffect(() => {
     if(localStorage.getItem("token") != null){
-      navigate('/app')
+      if(location.pathname !== "/")
+        navigate(location.pathname)
+      else
+        navigate('/app')
     }else{
       navigate('/login')
     }

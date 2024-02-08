@@ -1,0 +1,23 @@
+.add-exercise-wrapper{
+  background: #D9D9D9;
+  z-index: 2;
+  width: 92vw;
+  height: 85vh;
+  position: absolute;
+
+}
+
+.popup-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0rem 2rem;
+  align-items: center;
+}
+
+.popup-header > button{
+  background-color: #853835 ;
+  border-radius: 0rem;
+  height: 3rem;
+}
+

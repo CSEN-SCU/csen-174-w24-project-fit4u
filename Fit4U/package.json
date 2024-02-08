@@ -19,9 +19,11 @@
     "@vitejs/plugin-react-swc": "^3.5.0",
     "axios": "^1.6.7",
     "humps": "^2.0.1",
+    "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.1",
     "react-router": "^6.21.3",
     "react-router-dom": "^6.21.3",
+    "react-search-box": "^3.0.0",
     "react-select": "^5.8.0"
   }
 }
