@@ -10,6 +10,7 @@ import ReactDOM from "react-dom/client";
 import NewWorkout from './src/pages/NewWorkout'
 import ViewWorkout from './src/pages/ViewWorkout'
 import Workouts from "./src/pages/Workouts";
+import UserPage from "./src/pages/UserPage";
 
 
 export const router = createBrowserRouter(
@@ -28,6 +29,8 @@ export const router = createBrowserRouter(
           <Route path="/app/workouts" element={<Workouts />} /> 
 
           <Route path="/app/viewworkout" element={<ViewWorkout />} /> 
+
+          <Route path="/app/user" element={<UserPage />} />
 
       </Route>
 

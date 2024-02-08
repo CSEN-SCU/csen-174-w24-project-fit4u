@@ -30,7 +30,7 @@ const Header = () => {
       {menuDisplay.current}
       <button onClick={() => setMenu(!menu)}><img id={menu === false? "menu-icon" : "menu-icon-rotated"} src={MenuIcon} /></button>
       <button onClick={() => navigate("/app")}><h1><strong>FIT4U</strong></h1></button>
-      <button><img src={UserIcon} /></button>
+      <button onClick={() => navigate('/app/user')}><img src={UserIcon} /></button>
     </div>
   );
 };

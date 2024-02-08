@@ -13,6 +13,16 @@ const getMe = (setMe) => {
   }); 
 }
 
+const logout = () => {
+  const fetchPromise = userServices.create({}, 'api/logout/');
+  fetchPromise.then(response => {
+    console.log(response)
+    return response.data
+  }).catch((e) => {
+    console.log(e);
+  }); 
+}
+
 const getWorkouts = (setWorkouts) => {
   const fetchPromise = userServices.getAll("api/workout");
   fetchPromise.then(response => {
@@ -61,6 +71,7 @@ const getExercises = (setExercises) => {
 
 const calls = {
   getMe,
+  logout,
   getWorkouts,
   getWorkout,
   createWorkout,
