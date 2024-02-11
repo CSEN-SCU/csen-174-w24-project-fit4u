@@ -19,7 +19,8 @@ const NewWorkout = () => {
         {exercisePopup ? <AddExercisePopup setExercisePopup={setExercisePopup} setWorkoutExercises={setWorkoutExercises} workoutExercises={workoutExercises}/> : <></> }
       </div>
       
-      <LogWorkout setExercisePopup={setExercisePopup} />
+      <LogWorkout setExercisePopup={setExercisePopup} setWorkoutExercises={setWorkoutExercises} workoutExercises={workoutExercises} />
+  
     </div>
   )
 }

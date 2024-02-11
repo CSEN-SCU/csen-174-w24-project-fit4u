@@ -2,8 +2,9 @@ import React, { useState,useEffect } from 'react'
 import Select from "react-select"
 import '../Styles/logworkout.css'
 import calls from '../hooks/calls';
+import ExerciseItem from './ExerciseItem';
 
-export default function LogWorkout({ onAdd, setExercisePopup }) {
+export default function LogWorkout({ onAdd, setExercisePopup, workoutExercises}) {
     const [title, setTitle] = useState('');
     const [ex, setEx] = useState([]);
 
@@ -30,7 +31,17 @@ export default function LogWorkout({ onAdd, setExercisePopup }) {
         setEx(ex || []);
       };
 
-    
+    const generateExerciseItems = () => {
+        if(workoutExercises) {
+          return (
+            workoutExercises.map((exercise) =>
+              <>
+                  <ExerciseItem exercise={exercise} />
+              </>
+          )
+        )
+      }
+    }
    
     
 
@@ -49,6 +60,9 @@ export default function LogWorkout({ onAdd, setExercisePopup }) {
         <button className="SaveButton"> Save Workout </button>
         <button onClick={() => setExercisePopup(true)}>Add Exercise</button>
         <button onClick={() => handleSubmit()}>Submit</button>
+      </div>
+      <div>
+        {generateExerciseItems()}
       </div>
     </div>
     );
