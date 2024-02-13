@@ -10,11 +10,11 @@ const AuthPage = () => {
   const outlet = useOutlet();
 
   const navigate = useNavigate();
-
+ /*
     const { data: profile, refetch: fetchProfile } = useProfile();
     const { data: googleAuth, refetch: fetchGoogleAuth } = useGoogleAuthLink();
     const { mutate, isSuccess } = useGoogleAuthToken();
-
+   
     useEffect(() => {
       if (googleAuth) {
         window.location.replace(googleAuth.authorizationUrl);

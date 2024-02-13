@@ -1,0 +1,57 @@
+.create-wrapper{
+    color: blue;
+    background-color: #D3D3D3;
+    margin-top: 300px;
+    margin-left: 25px;
+    margin-right: 25x;
+    height: 600px;
+    align-self: center;
+}
+
+.strong {
+    background-color:white;
+    display: inline-block;
+    width: 300px;
+    border: 1px solid #000;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.SIGNUP {
+    background-color: #C70039 ;
+    
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+
+button {
+    height:100px;
+    width: 400px;
+    background-color:#C70039;
+    font-size: 50px;
+    color:white;
+    font-weight:bold;
+}
+
+.mytext{
+    height: 50px;
+    width: 300px;
+    font-size: 25px;
+}
+
+h1{
+    font-size:25px;
+    color:#D3D3D3;
+}
+
+h2{
+    font-size: 50px;
+    color:white;
+    text-align: center;
+    font-family: verdana;
+}
+
+

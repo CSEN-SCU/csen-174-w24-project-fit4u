@@ -9,6 +9,7 @@ import LandingPage from "./src/pages/landingPage";
 import ReactDOM from "react-dom/client";
 import NewWorkout from './src/pages/NewWorkout'
 import ViewWorkout from './src/pages/ViewWorkout'
+import CreateUser from "./src/pages/CreateUser";
 
 
 
@@ -17,6 +18,7 @@ export const router = createBrowserRouter(
     <Route path="/" element={<AuthPage />} >
       <Route element={<UnauthPage />}>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/createuser" element={<CreateUser />} />
       </Route>
       
       <Route path="/app" element={<ProtectedPage />}>
