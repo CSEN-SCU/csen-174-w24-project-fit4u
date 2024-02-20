@@ -1,5 +1,3 @@
-import Difficulty from "../Components/Difficulty"
-
 const generateExerciseSearch = (exercises) => {
   
   const searchArray = []
@@ -31,7 +29,7 @@ const convertSearchResult = (targetId, exercises) => {
 }
 
 const convertSet = async(reps, vol, setNumber, rating) => {
-  if(reps && vol && setNumber){
+  if(reps && setNumber){
     const data = {
     "setNumber": `${setNumber}`,
     "reps": `${reps}`,
@@ -41,7 +39,7 @@ const convertSet = async(reps, vol, setNumber, rating) => {
 
 
     return data
-  }else if(reps && vol && setNumber && rating){
+  }else if(reps && setNumber && rating){
     const data = {
       "setNumber": `${setNumber}`,
       "reps": `${reps}`,
@@ -69,18 +67,11 @@ const convertExercise = (id, exerciseName, unit, sets) => {
   return data
 }
 
-const convertWorkout = (data) => {
-  console.log(`Name: ${data.workout.name}`)
-  console.log(`Exercise 1: ${data.workout.exercises}`)
-
-}
-
 const filters = {
   generateExerciseSearch,
   convertSearchResult,
   convertSet,
   convertExercise,
-  convertWorkout
 }
 
 export default filters

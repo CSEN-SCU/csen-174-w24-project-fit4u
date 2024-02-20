@@ -38,7 +38,7 @@ const ViewWorkout = () => {
 
 
   return (
-    <div div className='workout-wrapper'> 
+    <div className='workout-wrapper'> 
       {display.current}
     </div>
   )
