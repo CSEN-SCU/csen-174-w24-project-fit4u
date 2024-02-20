@@ -89,6 +89,7 @@ export default function LogWorkout({ onAdd, setExercisePopup, workoutExercises})
     }
 
 
+
     
 
     return(
@@ -110,10 +111,10 @@ export default function LogWorkout({ onAdd, setExercisePopup, workoutExercises})
       <div className='exercise-items'>
         {generateExerciseItems()}
       </div>
-
     </div>
     );
 }
+
 
 /*  <p>We do {value}!</p>  
 
