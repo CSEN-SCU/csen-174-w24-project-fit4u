@@ -28,8 +28,3 @@
   border: 0 px transparent;
   z-index: 3 !important;
 }
-
-#menu-icon-rotated{
-  transform: rotate(90deg);
-  z-index: 3 !important;
-}

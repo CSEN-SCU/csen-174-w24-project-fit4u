@@ -1,25 +1,36 @@
 import React, {useEffect, useState, useRef} from 'react'
 import CreateWorkout from '../Components/CreateWorkout'
 import ViewExercises from '../Components/ViewExercises'
-import calls from '../hooks/calls'
+import calls from '../Hooks/calls'
 import '../Styles/landingpage.css'
 
 const LandingPage = () => {
 
   const [userInfo, setUserInfo] = useState()
+  const info = useRef()
+
+  const getUserInfo = async() => {
+    calls.getMe(setUserInfo)
+  }
 
   useEffect(() => {
-    const getUserInfo = async() => {
-      calls.getMe(setUserInfo)
-    }
+
 
     getUserInfo()
   }, [])
 
+  useEffect(() => {
+    if(userInfo){    
+      info.current = userInfo.firstName
+    }else{
+      getUserInfo()
+    }
+  }, [userInfo])
+
 
   return (
     <div className='landing-wrapper'> 
-      {userInfo ? <h1 className='hello-title'>Hello, {userInfo.firstName}</h1> : <h1>Hello</h1>}
+      <h1 className='hello-title'>Hello, {info.current}</h1>
       <CreateWorkout />
       <ViewExercises />
    </div>

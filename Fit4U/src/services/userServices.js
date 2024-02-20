@@ -5,7 +5,7 @@ const getAll = (page) => {
 };
 
 const get = (id, page) => {
-  return http.get(`/${page}/${id}`);
+  return http.get(`/${page}/${id}/`);
 };
 
 const create = (data, page) => {

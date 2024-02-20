@@ -1,8 +1,9 @@
 import {useState, useEffect, useRef} from 'react'
-import calls from '../hooks/calls'
+import calls from '../Hooks/calls'
 import '../Styles/exercisepopup.css'
 import filters from '../Hooks/sanitizeData'
 import ReactSearchBox from 'react-search-box'
+import { StarIcon } from '@heroicons/react/24/solid'
 
 const AddExercisePopup = ({setExercisePopup, setWorkoutExercises, workoutExercises}) => {
 
@@ -35,7 +36,7 @@ const AddExercisePopup = ({setExercisePopup, setWorkoutExercises, workoutExercis
         <h2>Add Exercise</h2>
         <button onClick={() => setExercisePopup(false)}>X</button>
       </div>
-      <ReactSearchBox 
+      {searchData.current ? <ReactSearchBox 
         placeholder="Search Exercises"
         value="Doe"
         autoFocus={true}
@@ -44,7 +45,8 @@ const AddExercisePopup = ({setExercisePopup, setWorkoutExercises, workoutExercis
           setWorkoutExercises(workoutExercises => [...workoutExercises, filters.convertSearchResult(record.item.key, exercises)])
           setExercisePopup(false)
         }}
-      />
+      /> : <></>}
+      
         
     </div>
   )

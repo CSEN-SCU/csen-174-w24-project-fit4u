@@ -24,7 +24,7 @@ const logout = () => {
 }
 
 const getWorkouts = (setWorkouts) => {
-  const fetchPromise = userServices.getAll("api/workout");
+  const fetchPromise = userServices.getAll("api/workout/");
   fetchPromise.then(response => {
     console.log(response)
     setWorkouts(response.data.workouts)
@@ -35,11 +35,12 @@ const getWorkouts = (setWorkouts) => {
   }); 
 }
 
-const getWorkout = (id, setWorkout) => {
+const getWorkout = async(id, setWorkout, setStatus) => {
   const fetchPromise = userServices.get(id, "api/workout");
   fetchPromise.then(response => {
     console.log(response)
     setWorkout(response.data.workout)
+    setStatus(response.status)
     return response.data
   })
   .catch((e) => {
@@ -47,10 +48,11 @@ const getWorkout = (id, setWorkout) => {
   }); 
 }
 
-const createWorkout = (data) => {
+const createWorkout = (data, setResponse) => {
   const fetchPromise = userServices.create(data, 'api/workout/');
   fetchPromise.then(response => {
     console.log(response)
+    setResponse(response.status)
     return response.data
   }).catch((e) => {
     console.log(e);
@@ -69,13 +71,37 @@ const getExercises = (setExercises) => {
   }); 
 }
 
+const createFavorite = (data) => {
+  const fetchPromise = userServices.create("api/external-exercises/favorite/");
+  fetchPromise.then(response => {
+    console.log(response)
+    return response.data
+  })
+  .catch((e) => {
+    console.log(e);
+  }); 
+}
+
+const createUser = (data) => {
+  const fetchPromise = userServices.create(data, 'api/sign-up/');
+  fetchPromise.then(response => {
+    console.log(response)
+    return response.data
+  }).catch((e) => {
+    console.log(e);
+  }); 
+}
+
+
 const calls = {
   getMe,
   logout,
   getWorkouts,
   getWorkout,
   createWorkout,
-  getExercises
+  getExercises,
+  createUser,
+  createFavorite
 }
 
 export default calls;
