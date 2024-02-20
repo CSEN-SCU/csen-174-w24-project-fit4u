@@ -6,9 +6,8 @@ import ExerciseItem from '../Components/ExerciseItem'
 import filters from '../Hooks/sanitizeData';
 
 
-export default function LogWorkout({ onAdd, setExercisePopup, workoutExercises}) {
+export default function LogWorkout({ onAdd, setExercisePopup, workoutExercises, getMode, setMode}) {
     const [title, setTitle] = useState('');
-    const [ex, setEx] = useState([]);
     const [getData, setGetData] = useState(false)
     const [dataExercises, setDataExercises] = useState([])
     const [submitReady, setSubmitReady] = useState(false)
@@ -76,15 +75,13 @@ export default function LogWorkout({ onAdd, setExercisePopup, workoutExercises})
     }, [response])
 
     
-
-
-
-    const handleChange = (ex) => {
-        setEx(ex || []);
-      };
-
     const generateExerciseItems = () => {
-      let items = workoutExercises.map((exercise) => <ExerciseItem exercise={exercise} getDataStatus={getDataStatus} dataExercises={dataExercises} setDataExercises={setDataExercises} key={exercise.id} /> )
+      let items
+      if(getMode() === 'new'){ 
+        items = workoutExercises.map((exercise) => <ExerciseItem exercise={exercise} getDataStatus={getDataStatus} dataExercises={dataExercises} setDataExercises={setDataExercises} key={exercise.id} /> )
+      }else if(getMode() === 'edit'){
+        items = workoutExercises.map((exercise) => <ExerciseItem exercise={exercise} getDataStatus={getDataStatus} dataExercises={dataExercises} setDataExercises={setDataExercises} key={exercise.id} /> )
+      }else if(getMode() === 'view')
       return items;
     }
 
@@ -114,34 +111,3 @@ export default function LogWorkout({ onAdd, setExercisePopup, workoutExercises})
     </div>
     );
 }
-
-/*  <p>We do {value}!</p>  
-
- <Dropdown label ="What do we eat?" options={options} value={value} onChange={handleChange} />
-
-const Dropdown = ({ label, value, options, onChange }) => {
-
-    return (
-   
-      <label>
-   
-        {label}
-   
-        <select value={value} onChange={onChange}>
-   
-          {options.map((option) => (
-   
-            <option value={option.value}>{option.label}</option>
-   
-          ))}
-   
-        </select>
-   
-      </label>
-   
-    );
-   
-   };
-
-
-*/

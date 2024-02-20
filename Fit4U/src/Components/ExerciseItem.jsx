@@ -17,7 +17,7 @@ const ExerciseItem = ({exercise, getDataStatus, dataExercises, setDataExercises}
 
   useEffect(() => {
     const genExercise = async() => {
-      const newExercise = filters.convertExercise(exercise.id, exercise.name, unit, dataSets)
+      const newExercise = filters.convertExercise(exercise.id, exercise.name, getUnits(), dataSets)
       if(newExercise !== null){
         const result = await setDataExercises(dataExercises => [...dataExercises, newExercise])
       }
@@ -62,9 +62,9 @@ const ExerciseItem = ({exercise, getDataStatus, dataExercises, setDataExercises}
           <p className='difficulty-wrapper'>Difficulty: <Difficulty rating={exercise.difficulty} /></p>
           <p>Equipment: {exercise.equipment}</p>
           <select onChange={(e) => setUnit(e.target.value)}>
-            <option value="lb">LB</option>
+            <option value="lbs">LB</option>
             <option value="kg">KG</option>
-            <option value="bw" selected={unit === 'bw' ? "selected" : ""}>Body Weight</option>
+            <option value="bw" selected={unit === 'bw' ? "selected" : ""} >Body Weight</option>
             <option value="tm">Timed</option>
           </select>
         </div>

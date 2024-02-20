@@ -20,7 +20,7 @@ const SetItem = ({ setNum, getDataStatus, setDataSets, dataSets, getUnits}) => {
 
     const genSet = async() => {
       let newSet
-      if(getUnits !== tm){
+      if(getUnits !== 'tm'){
         newSet = await filters.convertSet(reps, vol, setNum, rating)
       }else{
         newSet = await filters.convertSet(reps, convertTime(), setNum, rating)
