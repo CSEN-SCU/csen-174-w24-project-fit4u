@@ -28,7 +28,7 @@ export const router = createBrowserRouter(
 
           <Route path="/app/workouts" element={<Workouts />} /> 
 
-          <Route path="/app/viewworkout" element={<ViewWorkout />} /> 
+          <Route path="/app/viewworkout/:id" element={<ViewWorkout />} /> 
 
           <Route path="/app/user" element={<UserPage />} />
 

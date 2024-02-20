@@ -74,3 +74,18 @@
   color: black;
   opacity: 1.0;
 }
+
+.item-wrapper > .exercises {
+  text-align: right;
+  margin-left: 1rem;
+  align-self: flex-start;
+}
+
+.exercise-list{
+
+  list-style: none;
+}
+
+.exercise-list > li {
+  text-align: left;
+}
