@@ -25,10 +25,9 @@ export const router = createBrowserRouter(
           <Route path="/app" element={<LandingPage />} /> 
 
           <Route path="/app/newworkout" element={<NewWorkout />} />
+          <Route path="/app/newworkout/:id" element={<NewWorkout />} />
 
           <Route path="/app/workouts" element={<Workouts />} /> 
-
-          <Route path="/app/viewworkout/:id" element={<ViewWorkout />} /> 
 
           <Route path="/app/user" element={<UserPage />} />
 

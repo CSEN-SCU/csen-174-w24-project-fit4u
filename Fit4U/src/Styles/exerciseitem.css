@@ -83,8 +83,8 @@
 }
 
 .set-wrapper > .inputs > p{
-  width: 20vw;
-  height: 4vh;
+  width: 10vw;
+  height: 3.5vh;
   margin: 0rem 1rem 0rem 1rem;
   background: #853835;
   color: white;
@@ -101,6 +101,16 @@
 
 .set-wrapper > h4, .set-wrapper-rep-only > h4{
   width: 100%;
+}
+
+.set-wrapper > button, .set-wrapper-rep-only > button{
+  background: transparent;
+  border: 0px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 

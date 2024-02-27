@@ -9,15 +9,15 @@ const get = (id, page) => {
 };
 
 const create = (data, page) => {
-  return http.post(`/${page}`, data);
+  return http.post(`/${page}/`, data);
 };
 
 const update = (id, data, page) => {
-  return http.put(`${page}/${id}`, data);
+  return http.patch(`${page}/${id}/`, data);
 };
 
 const remove = (id, page) => {
-  return http.delete(`${page}/${id}`);
+  return http.delete(`${page}/${id}/`);
 };
 
 const removeAll = (page) => {

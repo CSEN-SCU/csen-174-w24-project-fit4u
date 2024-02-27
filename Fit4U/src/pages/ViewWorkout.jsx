@@ -18,8 +18,6 @@ const ViewWorkout = () => {
   }
 
   useEffect(() => {
-
-  
     getWorkout()
     
   }, [])

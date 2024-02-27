@@ -22,7 +22,7 @@ const SavedExerciseItem = ({exercise}) => {
 
   useEffect(() => {
     const getInfo = async() => {
-      setExerciseInfo(await filters.convertSearchResult(exercise.id, workoutExercises))
+      setExerciseInfo(await filters.convertSearchResult(exercise.externalExercise, workoutExercises))
       display.current = (
         <div className="exercise-item-wrapper">
           <div className='exercise-name'>

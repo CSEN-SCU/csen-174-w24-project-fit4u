@@ -27,7 +27,7 @@ const WorkoutDashItem = ({workout}) => {
         <p>{dateDisplay}</p>
       </div>
       <div className='exercises'>
-        <Link to={`/app/viewworkout/${workout.id}`}><h4>{workout.name}</h4></Link>
+        <Link to={`/app/newworkout/${workout.id}`}><h4>{workout.name}</h4></Link>
         <ul className='exercise-list'>{exercises()}</ul>
         
       </div>

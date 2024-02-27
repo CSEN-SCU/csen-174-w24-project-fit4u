@@ -4,12 +4,15 @@ import userServices from "../services/userServices";
 const getMe = (setMe) => {
   const fetchPromise = userServices.getAll("api/me/");
   fetchPromise.then(response => {
+    console.log(response.status)
     console.log(response)
     setMe(response.data)
     return response.data
   })
   .catch((e) => {
     console.log(e);
+    console.log('Reloading: ' + e.response.status);
+    window.location.reload();
   }); 
 }
 
@@ -20,6 +23,8 @@ const logout = () => {
     return response.data
   }).catch((e) => {
     console.log(e);
+    console.log('Reloading: ' + e.response.status);
+    window.location.reload();
   }); 
 }
 
@@ -32,19 +37,22 @@ const getWorkouts = (setWorkouts) => {
   })
   .catch((e) => {
     console.log(e);
+    console.log('Reloading: ' + e.response.status);
+    window.location.reload();
   }); 
 }
 
-const getWorkout = async(id, setWorkout, setStatus) => {
+const getWorkout = async(id, setWorkout) => {
   const fetchPromise = userServices.get(id, "api/workout");
   fetchPromise.then(response => {
     console.log(response)
     setWorkout(response.data.workout)
-    setStatus(response.status)
     return response.data
   })
   .catch((e) => {
     console.log(e);
+    console.log('Reloading: ' + e.response.status);
+    window.location.reload();
   }); 
 }
 
@@ -59,7 +67,18 @@ const createWorkout = (data, setResponse) => {
   }); 
 }
 
-const getExercises = (setExercises) => {
+const updateWorkout = (id, data) => {
+  const fetchPromise = userServices.update(id, data, 'api/workout');
+  fetchPromise.then(response => {
+    console.log(response)
+    return response.data
+  }).catch((e) => {
+    console.log(e);
+    console.log('Reloading: ' + e.response.status);
+  }); 
+}
+
+const getExercises = async(setExercises) => {
   const fetchPromise = userServices.getAll("api/external-exercises/");
   fetchPromise.then(response => {
     console.log(response)
@@ -68,7 +87,10 @@ const getExercises = (setExercises) => {
   })
   .catch((e) => {
     console.log(e);
+    console.log('Reloading: ' + e.response.status);
+    window.location.reload();
   }); 
+  
 }
 
 const createFavorite = (data) => {
@@ -79,6 +101,8 @@ const createFavorite = (data) => {
   })
   .catch((e) => {
     console.log(e);
+    console.log('Reloading: ' + e.response.status);
+    window.location.reload();
   }); 
 }
 
@@ -89,6 +113,8 @@ const createUser = (data) => {
     return response.data
   }).catch((e) => {
     console.log(e);
+    console.log('Reloading: ' + e.response.status);
+    window.location.reload();
   }); 
 }
 
@@ -99,6 +125,7 @@ const calls = {
   getWorkouts,
   getWorkout,
   createWorkout,
+  updateWorkout,
   getExercises,
   createUser,
   createFavorite

@@ -67,11 +67,67 @@ const convertExercise = (id, exerciseName, unit, sets) => {
   return data
 }
 
+const convertEditExercise = (exercise, exerciseName, unit, sets) => {
+
+  const setArray = sets
+  console.log('EXERCISE')
+  console.log(exercise.externalExercise)
+  let data;
+  if(exercise.id){
+    data = {
+      "external_exercise": exercise.externalExercise,
+      "name": `${exerciseName}`,
+      "unit": `${unit}`,
+      "sets": setArray,
+      "id": exercise.id
+
+    } 
+  }else{
+    data = {
+      "id": `${undefined}`,
+      "external_exercise": exercise.externalExercise,
+      "name": `${exerciseName}`,
+      "unit": `${unit}`,
+      "sets": setArray,
+    
+    } 
+  }
+  
+  return data
+}
+
+const convertEditSet = async(reps, vol, setNumber, rating) => {
+  if(reps && setNumber){
+    const data = {
+    "setNumber": `${setNumber}`,
+    "reps": `${reps}`,
+    "volume": `${vol}`,
+    "rating": ''
+    }
+
+
+    return data
+  }else if(reps && setNumber && rating){
+    const data = {
+      "setNumber": `${setNumber}`,
+      "reps": `${reps}`,
+      "volume": `${vol}`,
+      "rating": `${rating}`
+    }
+    return data
+  }else{
+    console.log('Empty Set')
+    return false;
+  }
+}
+
 const filters = {
   generateExerciseSearch,
   convertSearchResult,
   convertSet,
   convertExercise,
+  convertEditExercise,
+  convertEditSet
 }
 
 export default filters

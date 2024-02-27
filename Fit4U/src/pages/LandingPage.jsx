@@ -19,18 +19,18 @@ const LandingPage = () => {
     getUserInfo()
   }, [])
 
-  useEffect(() => {
-    if(userInfo){    
-      info.current = userInfo.firstName
+  const setUserInfoDisplay = () => {
+    if(userInfo){
+      return (userInfo.firstName)
     }else{
-      getUserInfo()
+
     }
-  }, [userInfo])
+  }
 
 
   return (
     <div className='landing-wrapper'> 
-      <h1 className='hello-title'>Hello, {info.current}</h1>
+      <h1 className='hello-title'>Hello, {userInfo ? userInfo.firstName : ""}</h1>
       <CreateWorkout />
       <ViewExercises />
    </div>
