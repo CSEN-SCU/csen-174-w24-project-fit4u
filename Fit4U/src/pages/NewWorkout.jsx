@@ -3,6 +3,9 @@ import LogWorkout from '../Components/LogWorkout'
 import AddExercisePopup from '../Components/AddExercisePopup'
 import '../Styles/newworkout.css'
 import { useParams } from 'react-router'
+import calls from '../Hooks/calls'
+import WorkoutItem from '../Components/WorkoutItem'
+import EditWorkout from '../Components/EditWorkout/EditWorkout'
 
 
 
@@ -13,18 +16,20 @@ const NewWorkout = () => {
   const [exercisePopup, setExercisePopup] = useState(false)
   const [workoutExercises, setWorkoutExercises] = useState([])
   const [mode, setMode] = useState('new')
-  const [existingWorkout, setExistingWorkout] = useState()
   const [status, setStatus] = useState()
+  const [workout, setWorkout] = useState()
+  const [externalExercises, setExternalExercises] = useState()
 
-  const display = useRef()
 
   const getMode = () => {return mode;}
 
-  const getWorkout = async() => {
-    const result = await calls.getWorkout(id, setExistingWorkout, setStatus)
+  const getExercises = async() => {
+    const result = calls.getExercises(setExternalExercises)
   }
 
+
   useEffect(() => {
+    getExercises()
     if(id){
       setMode('view')
       getWorkout() 
@@ -33,22 +38,22 @@ const NewWorkout = () => {
     }
   }, [])
 
-  useEffect(() => {
-    if(status < 400){
-      display.current = (
-        <>
-        <div className='popup'>
-          {exercisePopup ? <AddExercisePopup setExercisePopup={setExercisePopup} setWorkoutExercises={setWorkoutExercises} /> : <></> }
-        </div>
-      
-        <LogWorkout setExercisePopup={setExercisePopup} workoutExercises={workoutExercises} getMode={getMode} setMode={setMode} />
-      </>
-      )
-    }else{
-      display.current = <h1>Loading...</h1>
-      getWorkout()
+  const getWorkout = async() => {
+    if(id){
+      const result = await calls.getWorkout(id, setWorkout)
     }
-  }, [status])
+  }
+
+  useEffect(() => {
+    if(id){
+      if(mode !== 'edit'){
+        setMode('view')
+      }
+      getWorkout()
+    }else{
+      setMode('new')
+    }
+  }, [id])
 
 
 
@@ -56,12 +61,30 @@ const NewWorkout = () => {
     console.log(workoutExercises)
   }, [workoutExercises])
 
+  const genDisplay = () => {
+    if(mode === 'new'){
+      return <LogWorkout setExercisePopup={setExercisePopup} workoutExercises={workoutExercises} getMode={getMode} setMode={setMode} />
+    }else if(mode === 'view' && workout){
+      return <WorkoutItem  workout={workout} setMode={setMode} />
+    }else if(mode === 'edit' && workout){
+      return <EditWorkout workout={workout} setExercisePopup={setExercisePopup} externalExercises={externalExercises} setMode={setMode}/>
+    }
+  }
+
+
+
 
 
 
   return (
     <div className='workout-wrapper'>
-      {display.current}
+
+        <div className='popup'>
+          {exercisePopup && externalExercises ? <AddExercisePopup exercises={externalExercises} setExercisePopup={setExercisePopup} setWorkoutExercises={setWorkoutExercises} getMode={getMode}  workout={workout} setWorkout={setWorkout}/> : <></> }
+        </div>
+      
+       {genDisplay()}
+
     </div>
   )
 }

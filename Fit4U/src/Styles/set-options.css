@@ -1,0 +1,8 @@
+.set-options{
+  position: absolute;
+  background-color: #B82A25;
+  height: 10vh;
+  width: 25vw;
+  z-index: 4;
+  padding: 2rem;
+}

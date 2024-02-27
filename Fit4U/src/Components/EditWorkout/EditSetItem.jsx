@@ -1,18 +1,13 @@
-
 import React, {useState, useEffect} from 'react'
-import filters from '../Hooks/sanitizeData'
-import SetOptions from './SetOptions'
-import { EllipsisHorizontalCircleIcon } from '@heroicons/react/24/solid'
+import filters from '../../Hooks/sanitizeData'
 
-const SetItem = ({ set, setNum, getDataStatus, setDataSets, dataSets, getUnits, deleteSet, updateSet}) => {
-  console.log("--------SET ADD------------")
-  console.log(set)
+const EditSetItem = ({ set, setNum, getDataStatus, setDataSets, dataSets, getUnits}) => {
+
   const [reps, setReps] = useState(set.reps)
-  const [vol, setVol] = useState(set.vol)
-  const [rating, setRating] = useState(set.rating)
+  const [vol, setVol] = useState(set.volume)
+  const [rating, setRating] = useState(0)
   const [minutes, setMinutes] = useState('')
   const [seconds, setSeconds] = useState('')
-  const [optionsOpen, setOptionsOpen] = useState(false)
 
   let data = {
     "setNumber": `${setNum}`,
@@ -20,24 +15,6 @@ const SetItem = ({ set, setNum, getDataStatus, setDataSets, dataSets, getUnits, 
     "volume": `${vol}`,
     "rating": ''
   }
-
-  /*
-  useEffect(() => {
-
-    const update = () => {
-
-      updateSet(
-        {
-          'reps': `${reps}`,
-          'vol': `${vol}`,
-          'rating': `${rating}`
-        }, set.key
-      )
-    }
-
-    update()
-  }, [reps, vol, rating])
-  */
 
   useEffect(() => {
 
@@ -83,8 +60,6 @@ const SetItem = ({ set, setNum, getDataStatus, setDataSets, dataSets, getUnits, 
 
   return (
     <div className={getUnits() !== 'bw' ? 'set-wrapper' : 'set-wrapper-rep-only'} >
-      {optionsOpen ? <div><SetOptions setOptionsOpen={setOptionsOpen} deleteSet={deleteSet} setNum={setNum} /> </div> : <></>}
-      <button onClick={() => setOptionsOpen(!optionsOpen)}><EllipsisHorizontalCircleIcon height={24} color={'#000000'}/></button>
       <h4>SET {setNum}</h4>
       <div className={getUnits() === 'bw' ? 'rep-only-inputs' : 'inputs'}>
         <input type="number" placeholder={0} value={reps} onChange={(e)=> setReps(e.target.value)} />
@@ -94,4 +69,4 @@ const SetItem = ({ set, setNum, getDataStatus, setDataSets, dataSets, getUnits, 
   )
 }
 
-export default SetItem
+export default EditSetItem

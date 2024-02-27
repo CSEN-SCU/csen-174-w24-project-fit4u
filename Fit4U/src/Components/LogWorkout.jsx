@@ -4,20 +4,22 @@ import '../Styles/logworkout.css'
 import calls from '../Hooks/calls';
 import ExerciseItem from '../Components/ExerciseItem'
 import filters from '../Hooks/sanitizeData';
+import { useNavigate } from 'react-router';
 
 
-export default function LogWorkout({ onAdd, setExercisePopup, workoutExercises, getMode, setMode}) {
+export default function LogWorkout({ onAdd, setExercisePopup, workoutExercises}) {
     const [title, setTitle] = useState('');
     const [getData, setGetData] = useState(false)
     const [dataExercises, setDataExercises] = useState([])
     const [submitReady, setSubmitReady] = useState(false)
     const [response, setResponse] = useState(0)
-    const [clear, setClear] = useState(false)
     
 
     const datetime = new Date (Date.now())
 
     const getDataStatus = () => { return getData }
+
+    const navigate = useNavigate()
 
 
     
@@ -55,6 +57,8 @@ export default function LogWorkout({ onAdd, setExercisePopup, workoutExercises, 
           if(submitReady){
             console.log(data)
             calls.createWorkout(data, setResponse)
+            navigate('/app/workouts')
+            
           }
         }catch (error){
           console.log(error)
@@ -64,24 +68,11 @@ export default function LogWorkout({ onAdd, setExercisePopup, workoutExercises, 
       submitData()
     }, [submitReady])
 
-    useEffect(() => {
-      const clearData = () => {
-        setClear(true)
-      }
-
-      if(response === 200){
-        clearData();
-      }
-    }, [response])
-
     
     const generateExerciseItems = () => {
-      let items
-      if(getMode() === 'new'){ 
-        items = workoutExercises.map((exercise) => <ExerciseItem exercise={exercise} getDataStatus={getDataStatus} dataExercises={dataExercises} setDataExercises={setDataExercises} key={exercise.id} /> )
-      }else if(getMode() === 'edit'){
-        items = workoutExercises.map((exercise) => <ExerciseItem exercise={exercise} getDataStatus={getDataStatus} dataExercises={dataExercises} setDataExercises={setDataExercises} key={exercise.id} /> )
-      }else if(getMode() === 'view')
+ 
+      let items = workoutExercises.map((exercise) => <ExerciseItem exercise={exercise} getDataStatus={getDataStatus} dataExercises={dataExercises} setDataExercises={setDataExercises} key={exercise.id} /> )
+
       return items;
     }
 

@@ -5,7 +5,7 @@ import filters from '../Hooks/sanitizeData'
 import ReactSearchBox from 'react-search-box'
 import { StarIcon } from '@heroicons/react/24/solid'
 
-const AddExercisePopup = ({setExercisePopup, setWorkoutExercises, workoutExercises}) => {
+const AddExercisePopup = ({setExercisePopup, setWorkoutExercises, workoutExercises, getMode, workout, setWorkout}) => {
 
   const [exercises, setExercises] = useState(null)
   const searchData = useRef()
@@ -20,6 +20,28 @@ const AddExercisePopup = ({setExercisePopup, setWorkoutExercises, workoutExercis
     
 
   }, [])
+
+  const handleSelect = (record) => {
+    if(getMode() === 'new'){
+      setWorkoutExercises(workoutExercises => [...workoutExercises, filters.convertSearchResult(record.item.key, exercises)])
+      setExercisePopup(false)
+    }else if(getMode() === 'edit'){
+      const temp = workout
+      const converted =  filters.convertSearchResult(record.item.key, exercises)
+      console.log('------Coneverted---------')
+      console.log(converted)
+      temp.exercises.push({
+        'name': converted.name,
+        'sets': [],
+        'unit': 'lbs',
+        'externalExercise': record.item.key
+      })
+      setWorkout(temp)
+      console.log('---------ADD EX---------')
+      console.log(workout)
+      setExercisePopup(false)
+    }
+  }
 
   useEffect(() => {
     if(exercises){
@@ -42,8 +64,7 @@ const AddExercisePopup = ({setExercisePopup, setWorkoutExercises, workoutExercis
         autoFocus={true}
         data={searchData.current} 
         onSelect={(record) => {
-          setWorkoutExercises(workoutExercises => [...workoutExercises, filters.convertSearchResult(record.item.key, exercises)])
-          setExercisePopup(false)
+          handleSelect(record)
         }}
       /> : <></>}
       

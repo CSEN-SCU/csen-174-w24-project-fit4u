@@ -2,7 +2,7 @@ import React from 'react'
 import '../Styles/logworkout.css'
 import SavedExerciseItem from './SavedExerciseItem'
 
-const WorkoutItem = ({workout}) => {
+const WorkoutItem = ({workout, setMode}) => {
 
   const generateExerciseItems = () => {
     let items = workout.exercises.map((exercise) => <SavedExerciseItem exercise={exercise} key={exercise.id} /> )
@@ -28,7 +28,7 @@ const WorkoutItem = ({workout}) => {
           <h3>{dateDisplay}</h3>
         </div>
         <div className='workout-buttons'>
-          <button className="SaveButton"> Edit Workout </button>
+          <button className="SaveButton" onClick={() => setMode('edit')}> Edit Workout </button>
           
         </div>
         <div className='exercise-items'>
