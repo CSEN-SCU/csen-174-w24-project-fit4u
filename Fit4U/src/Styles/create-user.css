@@ -1,5 +1,4 @@
 .create-wrapper{
-    color: blue;
     background-color: #D3D3D3;
     margin-top: 300px;
     margin-left: 25px;
@@ -19,6 +18,17 @@
     margin-bottom: 25px;
 }
 
+.textbox {
+    background-color:white;
+    display: inline-block;
+    width: 300px;
+    border: 1px solid #000;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
 .SIGNUP {
     background-color: #C70039 ;
     
@@ -27,13 +37,18 @@
     
 }
 
-button {
-    height:100px;
-    width: 400px;
-    background-color:#C70039;
+.RP {
+    background-color: #C70039;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.buttonRED {
+    
+    color:#C70039;
     font-size: 50px;
-    color:white;
     font-weight:bold;
+  
 }
 
 .mytext{
@@ -43,8 +58,11 @@ button {
 }
 
 h1{
-    font-size:25px;
-    color:#D3D3D3;
+    
+    font-size: 25px;
+    color: white;
+    font-family: verdana;
+    text-align:center;
 }
 
 h2{
@@ -53,5 +71,34 @@ h2{
     text-align: center;
     font-family: verdana;
 }
+
+.newuser{
+    text-align: center;
+    color: black;
+    font-family:verdana;
+}
+
+h3{
+    color: black;
+    font-family:verdana;
+    font-size:20px;
+    white-space: nowrap;
+}
+
+h4{
+    color: blue;
+    font-family:verdana;
+    font-size:20px;
+    display: inline-block;
+}
+
+.btn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+  }
 
 
