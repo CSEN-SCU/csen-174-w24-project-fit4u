@@ -18,8 +18,10 @@ const CreateUser = () => {
             <input type = "text" class="mytext" placeholder='Confirm Password'/>
             </div>
             <div className='SIGNUP'>
-                <h2>
-                    <button type="button">SIGN UP</button>
+              <h2>
+                    <button type="button">
+                       SIGN UP
+                    </button>
                 </h2>
             </div>
             

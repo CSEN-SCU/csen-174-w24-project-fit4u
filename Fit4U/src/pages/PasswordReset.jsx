@@ -1,5 +1,6 @@
 import React from 'react'
 import PasswordResetForm from '../Components/PasswordResetForm'
+import { Link } from "react-router-dom";
 
 const PasswordReset = () => {
     return(
@@ -21,9 +22,7 @@ const PasswordReset = () => {
 
                 <div className='newuser'>
                     <h3>New User? 
-                        <h4> 
-                            SIGN UP!
-                        </h4>
+                        <Link to='/createuser'><h4>SIGN UP!</h4></Link>
                     </h3>
                     
                 </div>
