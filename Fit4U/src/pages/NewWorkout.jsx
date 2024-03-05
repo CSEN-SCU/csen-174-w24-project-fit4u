@@ -6,6 +6,7 @@ import { useParams } from 'react-router'
 import calls from '../Hooks/calls'
 import WorkoutItem from '../Components/WorkoutItem'
 import EditWorkout from '../Components/EditWorkout/EditWorkout'
+import FilterExercisePopup from '../Components/FilterExercisePopup'
 
 
 
@@ -14,6 +15,9 @@ const NewWorkout = () => {
   const {id} = useParams()
 
   const [exercisePopup, setExercisePopup] = useState(false)
+
+  const [filterPopup, setFilterPopup] = useState(false)
+
   const [workoutExercises, setWorkoutExercises] = useState([])
   const [mode, setMode] = useState('new')
   const [status, setStatus] = useState()
@@ -80,7 +84,10 @@ const NewWorkout = () => {
     <div className='workout-wrapper'>
 
         <div className='popup'>
-          {exercisePopup && externalExercises ? <AddExercisePopup exercises={externalExercises} setExercisePopup={setExercisePopup} setWorkoutExercises={setWorkoutExercises} getMode={getMode}  workout={workout} setWorkout={setWorkout}/> : <></> }
+          {exercisePopup && externalExercises ? <AddExercisePopup exercises={externalExercises} setExercisePopup={setExercisePopup} setWorkoutExercises={setWorkoutExercises} getMode={getMode}  workout={workout} setWorkout={setWorkout} setFilterPopup={setFilterPopup}/> : <></> }
+        </div>
+        <div className='popup'>
+          {filterPopup && externalExercises ? <FilterExercisePopup exercises={externalExercises} setFilterPopup={setFilterPopup} setWorkoutExercises={setWorkoutExercises} getMode={getMode} workout={workout} setWorkout={setWorkout} setExercisePopup={setExercisePopup}/> : <></>  }
         </div>
       
        {genDisplay()}
