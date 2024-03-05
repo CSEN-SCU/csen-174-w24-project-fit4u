@@ -96,7 +96,7 @@ const FilterExercisePopup = ({setFilterPopup, setWorkoutExercises, workoutExerci
             </div>
 
             <div>
-              <h2>Select Muscles:</h2>
+              <h2>Select Muscles</h2>
             </div>
             <div>
               <select multiple className ="filter-dropdown-menu" >
