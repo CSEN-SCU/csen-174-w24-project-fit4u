@@ -29,7 +29,7 @@ const Header = () => {
     <div className="wrapper">
       {menuDisplay.current}
       <button onClick={() => setMenu(!menu)}><img id={menu === false? "menu-icon" : "menu-icon-rotated"} src={MenuIcon} /></button>
-      <button onClick={() => {
+      <button className="home-btn" onClick={() => {
         navigate("/app")
         setMenu(false)
     }}><h1><strong>FIT4U</strong></h1></button>

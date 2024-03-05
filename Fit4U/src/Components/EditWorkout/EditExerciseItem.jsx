@@ -36,7 +36,7 @@ const EditExerciseItem = ({exercise, getDataStatus, dataExercises, setDataExerci
   }, [dataSets])
 
   const volume = () => {
-    if(unit === 'lb' || unit === 'kg'){
+    if(unit === 'lbs' || unit === 'kg'){
       return (<h3>VOL</h3>)
     }else if(unit === 'tm'){
       return (<h3>TIME</h3>)

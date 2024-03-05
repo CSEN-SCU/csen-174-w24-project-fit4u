@@ -5,24 +5,12 @@ import filters from '../Hooks/sanitizeData'
 import ReactSearchBox from 'react-search-box'
 import { StarIcon } from '@heroicons/react/24/solid'
 
-const AddExercisePopup = ({setExercisePopup, setWorkoutExercises, workoutExercises, getMode, workout, setWorkout}) => {
+const AddExercisePopup = ({exercises, setExercisePopup, setWorkoutExercises, workoutExercises, getMode, workout, setWorkout}) => {
 
-  const [exercises, setExercises] = useState(null)
   const searchData = useRef()
 
-  useEffect(() => {
-    const getExercises = () => {
-      calls.getExercises(setExercises)
-    }
-
-    getExercises()
-    
-    
-
-  }, [])
-
   const handleSelect = (record) => {
-    if(getMode() === 'new'){
+    if(getMode() === 'new' || getMode() === 'plan'){
       setWorkoutExercises(workoutExercises => [...workoutExercises, filters.convertSearchResult(record.item.key, exercises)])
       setExercisePopup(false)
     }else if(getMode() === 'edit'){
@@ -43,13 +31,9 @@ const AddExercisePopup = ({setExercisePopup, setWorkoutExercises, workoutExercis
     }
   }
 
-  useEffect(() => {
-    if(exercises){
-      searchData.current = filters.generateExerciseSearch(exercises)
-    }
-
-    
-  }, [exercises])
+  const searchDataFilter = () => {
+    return(filters.generateExerciseSearch(exercises))
+  }
 
 
   return (
@@ -58,15 +42,19 @@ const AddExercisePopup = ({setExercisePopup, setWorkoutExercises, workoutExercis
         <h2>Add Exercise</h2>
         <button onClick={() => setExercisePopup(false)}>X</button>
       </div>
-      {searchData.current ? <ReactSearchBox 
+      {exercises ? <ReactSearchBox 
         placeholder="Search Exercises"
         value="Doe"
         autoFocus={true}
-        data={searchData.current} 
+        data={searchDataFilter()} 
         onSelect={(record) => {
           handleSelect(record)
         }}
-      /> : <></>}
+      /> : <ReactSearchBox 
+            placeholder="Loading..."
+            autoFocus={true}
+          />
+      }
       
         
     </div>

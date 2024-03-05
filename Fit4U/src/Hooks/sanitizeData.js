@@ -1,3 +1,5 @@
+
+
 const generateExerciseSearch = (exercises) => {
   
   const searchArray = []

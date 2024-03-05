@@ -10,14 +10,14 @@ const Menu = ({getMenu}) => {
           <h1>WORKOUTS</h1>
         </div>
       </Link>
-      <Link to="/exercises">
+      <Link to="/app/workout-plans">
         <div className='menu-item'>
-          <h1>EXERCISES</h1>
+          <h1>WORKOUT PLANS</h1>
         </div>
       </Link>
-      <Link to="/goals">
+      <Link to="/app/analyze">
         <div className='menu-item'>
-          <h1>GOALS</h1>
+          <h1>ANALYZE</h1>
         </div>
       </Link>
       <Link to="/settings">

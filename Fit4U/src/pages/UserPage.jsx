@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
 import WorkoutDash from '../Components/WorkoutDash'
-import calls from '../hooks/calls'
+import calls from '../Hooks/calls'
 import UserIcon from "/UserIcon.png?url";
 import '../Styles/userpage.css'
 import { useNavigate } from 'react-router';

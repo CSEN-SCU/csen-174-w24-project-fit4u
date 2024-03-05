@@ -5,8 +5,7 @@ import SetOptions from './SetOptions'
 import { EllipsisHorizontalCircleIcon } from '@heroicons/react/24/solid'
 
 const SetItem = ({ set, setNum, getDataStatus, setDataSets, dataSets, getUnits, deleteSet, updateSet}) => {
-  console.log("--------SET ADD------------")
-  console.log(set)
+
   const [reps, setReps] = useState(set.reps)
   const [vol, setVol] = useState(set.vol)
   const [rating, setRating] = useState(set.rating)
@@ -83,7 +82,7 @@ const SetItem = ({ set, setNum, getDataStatus, setDataSets, dataSets, getUnits, 
 
   return (
     <div className={getUnits() !== 'bw' ? 'set-wrapper' : 'set-wrapper-rep-only'} >
-      {optionsOpen ? <div><SetOptions setOptionsOpen={setOptionsOpen} deleteSet={deleteSet} setNum={setNum} /> </div> : <></>}
+      {optionsOpen ? <div><SetOptions setOptionsOpen={setOptionsOpen} deleteSet={deleteSet} setNum={setNum} setRating={setRating} rating={rating}/> </div> : <></>}
       <button onClick={() => setOptionsOpen(!optionsOpen)}><EllipsisHorizontalCircleIcon height={24} color={'#000000'}/></button>
       <h4>SET {setNum}</h4>
       <div className={getUnits() === 'bw' ? 'rep-only-inputs' : 'inputs'}>

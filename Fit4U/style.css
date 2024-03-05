@@ -85,35 +85,26 @@
     outline: 4px auto -webkit-focus-ring-color;
   }
   
-  @media (prefers-color-scheme: light) {
-    :root {
-      color: #FFFFFF;
-      background-color: #ffffff;
-    }
-    a:hover {
-      color: #747bff;
-    }
-    button {
-      background-color: #f9f9f9;
-    }
-  }
-  
 }
 
 @media (min-width: 801px) {
   :root{
     margin-left: 33% ;
     margin-right: 33% ;
-
+    max-width: 400px;
+    max-height: 700px;
   }
 
   body {
     margin: 0;
     display: flex;
     place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
     border: 3px solid black;
+  }
+
+  *{
+    max-width: 400px;
+    max-height: 700px;
   }
 
 }

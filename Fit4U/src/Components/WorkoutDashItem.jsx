@@ -22,14 +22,19 @@ const WorkoutDashItem = ({workout}) => {
 
 
   return (
+    
     <div className='item-wrapper'>
-      <div className='date-wrapper'>
-        <p>{dateDisplay}</p>
+      <div className='item-header'>
+        <Link to={`/app/workout/saved/${workout.id}`}><button className='title-btn'>{workout.name}</button></Link>
       </div>
-      <div className='exercises'>
-        <Link to={`/app/newworkout/${workout.id}`}><h4>{workout.name}</h4></Link>
-        <ul className='exercise-list'>{exercises()}</ul>
-        
+      <div className='item-body'>
+        <div className='date-wrapper'>
+          <p>{dateDisplay}</p>
+        </div>
+        <div className='exercises'>
+          <ul className='exercise-list'>{exercises()}</ul>
+          
+        </div>
       </div>
     </div>
   )

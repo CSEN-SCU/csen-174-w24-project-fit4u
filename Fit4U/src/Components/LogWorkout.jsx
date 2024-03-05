@@ -7,8 +7,8 @@ import filters from '../Hooks/sanitizeData';
 import { useNavigate } from 'react-router';
 
 
-export default function LogWorkout({ onAdd, setExercisePopup, workoutExercises}) {
-    const [title, setTitle] = useState('');
+export default function LogWorkout({ onAdd, setExercisePopup, workoutExercises, passedTitle, deleteExercise}) {
+    const [title, setTitle] = useState(passedTitle ? passedTitle : '');
     const [getData, setGetData] = useState(false)
     const [dataExercises, setDataExercises] = useState([])
     const [submitReady, setSubmitReady] = useState(false)
@@ -58,6 +58,7 @@ export default function LogWorkout({ onAdd, setExercisePopup, workoutExercises})
             console.log(data)
             calls.createWorkout(data, setResponse)
             navigate('/app/workouts')
+            window.location.reload()
             
           }
         }catch (error){
@@ -68,10 +69,12 @@ export default function LogWorkout({ onAdd, setExercisePopup, workoutExercises})
       submitData()
     }, [submitReady])
 
+
+
     
     const generateExerciseItems = () => {
  
-      let items = workoutExercises.map((exercise) => <ExerciseItem exercise={exercise} getDataStatus={getDataStatus} dataExercises={dataExercises} setDataExercises={setDataExercises} key={exercise.id} /> )
+      let items = workoutExercises.map((exercise) => <ExerciseItem exercise={exercise} getDataStatus={getDataStatus} dataExercises={dataExercises} setDataExercises={setDataExercises} key={exercise.id} deleteExercise={deleteExercise}/> )
 
       return items;
     }

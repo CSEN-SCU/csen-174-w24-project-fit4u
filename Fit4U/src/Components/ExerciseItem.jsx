@@ -3,20 +3,22 @@ import '../Styles/exerciseitem.css'
 import SetItem from './SetItem';
 import filters from '../Hooks/sanitizeData';
 import Difficulty from './Difficulty';
+import ExerciseOptions from './ExerciseOptions';
+import { EllipsisHorizontalCircleIcon, HeartIcon } from '@heroicons/react/24/solid';
 
-const ExerciseItem = ({exercise, getDataStatus, dataExercises, setDataExercises}) => {
+const ExerciseItem = ({exercise, getDataStatus, dataExercises, setDataExercises, deleteExercise}) => {
 
   const [sets, setSets] = useState(0)
+  const [setNum, setSetNum] = useState(0)
   const [dataSets, setDataSets] = useState([])
   const [unit, setUnit] = useState(exercise.equipment === "body_only" ? 'bw' : 'lbs')
   const [displaySets, setDisplaySets] = useState([])
+  const [optionsOpen, setOptionsOpen] = useState(false)
+  const [favorite, setFavorite] = useState(exercise.favorite)
 
   const getUnits = () => {
     return unit
   }
-
-
-
 
   useEffect(() => {
     const genExercise = async() => {
@@ -56,22 +58,8 @@ const ExerciseItem = ({exercise, getDataStatus, dataExercises, setDataExercises}
     
   }
 
-  const updateSet = (data, index) => {
-    const nextSets = displaySets.map((set, i) => {
-      if(i === index){
-        return({
-        "reps": data.reps,
-        "vol": data.vol,
-        "rating": data.rating
-        })
-      }
-    })
-
-    setDisplaySets(nextSets)
-  }
 
   const addSet = () => {
-    console.log('Adding')
     setSets(sets + 1)
     setDisplaySets(sets => [...sets, 
       {
@@ -83,14 +71,39 @@ const ExerciseItem = ({exercise, getDataStatus, dataExercises, setDataExercises}
     ])
   }
 
+  const generateOptions = () => {
+
+    if(exercise.type === 'strength'){
+      if(exercise.equipment === 'body_only'){
+        return(
+          <select onChange={(e) => setUnit(e.target.value)}>
+            <option value="bw" defaultValue={unit === 'bw' ? "selected" : ""} >Body Weight</option>
+          </select>
+        )
+      }else{
+        return(
+          <select onChange={(e) => setUnit(e.target.value)}>
+            <option value="lbs">LB</option>
+            <option value="kg">KG</option>
+            <option value="bw" defaultValue={unit === 'bw' ? "selected" : ""} >Body Weight</option>
+          </select>
+        )
+      }
+    }else if(exercise.type === 'cardio'){
+      return(
+        <select onChange={(e) => setUnit(e.target.value)}>
+          <option value="timed">Timed</option>
+        </select>
+      )
+    }
+  }
+
  
 
   const setDisplay = () => {
   
-    
-
      return( displaySets.map((set, i) => 
-        <SetItem set={set} setNum={i + 1} dataSets={dataSets} setDataSets={setDataSets} getDataStatus={getDataStatus} key={i} getUnits={getUnits} deleteSet={deleteSet} updateSet={updateSet} /> 
+        <SetItem set={set} setNum={i + 1} dataSets={dataSets} setDataSets={setDataSets} getDataStatus={getDataStatus} key={i} getUnits={getUnits} deleteSet={deleteSet} /> 
       )
      )
 
@@ -107,21 +120,19 @@ const ExerciseItem = ({exercise, getDataStatus, dataExercises, setDataExercises}
 
   return (
     <div className="exercise-item-wrapper">
-      <div className='exercise-name'>
-        <button onClick={() => console.log(displaySets)}>I</button>
+      <div className={favorite ? 'exercise-name-heart' : 'exercise-name'}>
+        {favorite ? <div className='heart-icon'><HeartIcon EllipsisHorizontalCircleIcon height={28} width={28} color='#853835'/></div> : <></>}
         <h2>{exercise.name}</h2>
+        <button className='btn-clear' onClick={() => setOptionsOpen(!optionsOpen)}><EllipsisHorizontalCircleIcon height={28} width={28} margin={4} color='#853835'/></button>
+        {optionsOpen ? <ExerciseOptions deleteExercise={deleteExercise} exercise={exercise} setFavoriteItem={setFavorite} favorite={favorite}/> : <></>}
       </div>
       <div className='info-container'>
         <div className='exercise-info'>
           <p>Muscle: {exercise.muscle}</p>
           <p className='difficulty-wrapper'>Difficulty: <Difficulty rating={exercise.difficulty} /></p>
           <p>Equipment: {exercise.equipment}</p>
-          <select onChange={(e) => setUnit(e.target.value)}>
-            <option value="lbs">LB</option>
-            <option value="kg">KG</option>
-            <option value="bw" defaultValue={unit === 'bw' ? "selected" : ""} >Body Weight</option>
-            <option value="tm">Timed</option>
-          </select>
+          {generateOptions()}
+           
         </div>
         <div className='set-info'>
           <div className='header'>

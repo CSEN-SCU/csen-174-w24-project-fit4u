@@ -14,12 +14,12 @@
 
 .wrapper > h1{
   color: #332929;
+  vertical-align: center;
   text-align: center;
   font-family: 'Koulen', sans-serif;
   font-size: 2.5rem;
   font-style: normal;
   font-weight: 400;
-  margin-left: 5%;
   z-index: 3 !important;
 }
 
@@ -27,4 +27,12 @@
   background-color: transparent;
   border: 0 px transparent;
   z-index: 3 !important;
+  height: 12vh;
+}
+
+.home-btn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

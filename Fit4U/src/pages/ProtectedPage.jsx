@@ -1,19 +1,20 @@
 import React, {useEffect, useState} from 'react'
 import { useOutlet, useParams } from 'react-router'
 import Header from '../Components/Header'
-import calls from '../hooks/calls';
+import calls from '../Hooks/calls';
 
 const ProtectedPage = () => {
   const outlet = useOutlet()
   const params = useParams()
   let display;
 
-  const [userInfo, setUserInfo] = useState()
+  //const [userInfo, setUserInfo] = useState()
 
   if(params.pathname = '/app'){
     display = outlet;
   }
 
+  /*
   useEffect(() => {
     const getUserInfo = async() => {
       calls.getMe(setUserInfo)
@@ -21,6 +22,7 @@ const ProtectedPage = () => {
 
     getUserInfo()
   }, [])
+  */
 
   return (
     <div className='app-wrapper'>

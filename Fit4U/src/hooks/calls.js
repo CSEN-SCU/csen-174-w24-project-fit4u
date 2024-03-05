@@ -57,7 +57,7 @@ const getWorkout = async(id, setWorkout) => {
 }
 
 const createWorkout = (data, setResponse) => {
-  const fetchPromise = userServices.create(data, 'api/workout/');
+  const fetchPromise = userServices.create(data, 'api/workout');
   fetchPromise.then(response => {
     console.log(response)
     setResponse(response.status)
@@ -71,6 +71,7 @@ const updateWorkout = (id, data) => {
   const fetchPromise = userServices.update(id, data, 'api/workout');
   fetchPromise.then(response => {
     console.log(response)
+    window.location.reload();
     return response.data
   }).catch((e) => {
     console.log(e);
@@ -94,7 +95,7 @@ const getExercises = async(setExercises) => {
 }
 
 const createFavorite = (data) => {
-  const fetchPromise = userServices.create("api/external-exercises/favorite/");
+  const fetchPromise = userServices.create(data, "api/external-exercises/favorite");
   fetchPromise.then(response => {
     console.log(response)
     return response.data
@@ -102,7 +103,7 @@ const createFavorite = (data) => {
   .catch((e) => {
     console.log(e);
     console.log('Reloading: ' + e.response.status);
-    window.location.reload();
+    //window.location.reload();
   }); 
 }
 
@@ -118,6 +119,72 @@ const createUser = (data) => {
   }); 
 }
 
+const getWorkoutPlans  = (setPlans) => {
+  const fetchPromise = userServices.getAll("api/workout-plan/");
+  fetchPromise.then(response => {
+    console.log(response)
+    setPlans(response.data.workoutPlans)
+    return response.data
+  })
+  .catch((e) => {
+    console.log(e);
+    console.log('Reloading: ' + e.response.status);
+    window.location.reload();
+  }); 
+}
+
+const getWorkoutPlan = async(id, setPlan) => {
+  const fetchPromise = userServices.get(id, "api/workout-plan");
+  fetchPromise.then(response => {
+    console.log(response)
+    setPlan(response.data.workoutPlan)
+    return response.data
+  })
+  .catch((e) => {
+    console.log(e);
+    console.log('Reloading: ' + e.response.status);
+    //window.location.reload();
+  }); 
+}
+
+const createWorkoutPlan = (data) =>{
+  const fetchPromise = userServices.create(data, 'api/workout-plan');
+  fetchPromise.then(response => {
+    console.log(response)
+    return response.data
+  }).catch((e) => {
+    console.log(e);
+    console.log('Reloading: ' + e.response.status);
+    //window.location.reload();
+  }); 
+}
+
+const updateWorkoutPlan = (id, data) => {
+  const fetchPromise = userServices.update(id, data, 'api/workout-plan');
+  fetchPromise.then(response => {
+    console.log(response)
+    window.location.reload();
+    return response.data
+  }).catch((e) => {
+    console.log(e);
+    console.log('Reloading: ' + e.response.status);
+  }); 
+}
+
+const getAnalyze = (setAnalyze) => {
+  const fetchPromise = userServices.getAll("api/analyze/");
+  fetchPromise.then(response => {
+    console.log(response)
+    setAnalyze(response.data.analysis)
+    return response.data
+  })
+  .catch((e) => {
+    console.log(e);
+    console.log('Reloading: ' + e.response.status);
+    //window.location.reload();
+  }); 
+}
+
 
 const calls = {
   getMe,
@@ -128,7 +195,12 @@ const calls = {
   updateWorkout,
   getExercises,
   createUser,
-  createFavorite
+  createFavorite,
+  getWorkoutPlans,
+  createWorkoutPlan,
+  getWorkoutPlan,
+  updateWorkoutPlan,
+  getAnalyze
 }
 
 export default calls;

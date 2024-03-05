@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
 import WorkoutDashItem from './WorkoutDashItem'
-import calls from '../hooks/calls'
+import calls from '../Hooks/calls'
 import { useNavigate } from 'react-router'
 import '../Styles/workout-dash.css'
 
@@ -27,7 +27,7 @@ const WorkoutDash = ({}) => {
       <div className='workouts-wrapper'>
         <div className='header'>
           <h2>WORKOUTS</h2>
-          <button onClick={() => navigate("/app/newworkout")}>CREATE WORKOUT</button>
+          <button onClick={() => navigate("/app/workout")}>CREATE WORKOUT</button>
         </div>
         <div className='table-labels'>
           <h3>DATE</h3>

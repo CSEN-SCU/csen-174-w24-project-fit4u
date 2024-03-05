@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import EditExerciseItem from './EditExerciseItem';
 import calls from '../../Hooks/calls';
+import { useParams, useNavigate } from 'react-router';
 
 const EditWorkout = ({ setExercisePopup, workout, externalExercises, setMode}) => {
   
@@ -12,8 +13,11 @@ const EditWorkout = ({ setExercisePopup, workout, externalExercises, setMode}) =
 
   const datetime = new Date (Date.now())
 
+  const {id} = useParams()
+
   const getDataStatus = () => { return getData }
 
+  const navigate = useNavigate()
 
   const data = {
     "workout":{
@@ -34,6 +38,7 @@ const EditWorkout = ({ setExercisePopup, workout, externalExercises, setMode}) =
 
 useEffect(() => {
   const genExercises = () => {
+    console.log(dataExercises)
     if(dataExercises.length !== 0){
       setSubmitReady(true)
     }
@@ -45,6 +50,7 @@ useEffect(() => {
 useEffect(() => {
   const submitData = () => {
     try{
+      console.log(submitReady)
       if(submitReady){
         console.log(data)
 
@@ -55,6 +61,8 @@ useEffect(() => {
     }catch (error){
       console.log(error)
     }
+
+   
   }
 
   submitData()

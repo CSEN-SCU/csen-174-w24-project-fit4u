@@ -11,7 +11,7 @@
 .WorkoutTitle-Wrapper > input::placeholder {
     color: #000000;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-family: 'Koulen', sans-serif;
     font-weight: 400;
     opacity: .5;
