@@ -13,8 +13,7 @@ Im moving everything over I did in AddExercisePopup to this, with slight tweaks.
 */
 const FilterExercisePopup = ({setFilterPopup, setWorkoutExercises, workoutExercises, getMode, workout, setWorkout, setExercisePopup}) => {
     const [checkbox, setCheckbox] = useState([new Array(15).fill(0)]);
-    //const [checkBoxTemp, setCheckBoxtemp] = useState(new Array(15).fill(1));
-    const searchData = useRef()
+    const [searchData, setSearchData] = useState([{}]);
     const [exercises, setExercises] = useState(null)
     const options = [ 
         { name: "Abdominals", index: 0 },
@@ -55,13 +54,22 @@ const FilterExercisePopup = ({setFilterPopup, setWorkoutExercises, workoutExerci
     
       // Update the checkBox state
       setCheckbox(tempArray);
-      if(exercises)
-        searchData.current = filters.generateFilterSearch(exercises, checkbox)
-      console.log(searchData);
-      console.log(tempArray);
-      console.log(searchData);
+      generateResult();
+      
     };
 
+    const generateResult = () => {
+      const tempArraytwo = [];
+      if(exercises) 
+      {
+        tempArraytwo.current = filters.generateFilterSearch(exercises, checkbox);
+        setSearchData(tempArraytwo.current);
+        console.log(searchData);
+        
+      }  
+
+    }
+    
     const handleSelect = (record) => {
       if(getMode() === 'new'){
         setWorkoutExercises(workoutExercises => [...workoutExercises, filters.convertSearchResult(record.key, exercises)])
@@ -112,16 +120,17 @@ const FilterExercisePopup = ({setFilterPopup, setWorkoutExercises, workoutExerci
            </div>
 
            <div>
-           {searchData.current ? <Select
-            placeholder="Search Exercises"
+           <Select
+            placeholder="Filtered Search"
             autoFocus={true}
             defaultValue="Doe"
-            options={searchData.current} 
+            options={searchData} 
             onChange={
-            (record) => {handleSelect(record)}
-          
+              
+            (record) => {handleSelect(record) }
+            
             }
-      /> : <></>}
+            /> 
            </div>
 
 
