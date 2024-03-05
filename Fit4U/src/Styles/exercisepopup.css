@@ -21,3 +21,9 @@
   height: 3rem;
 }
 
+
+.filter-dropdown-menu {
+ width: 70vw;
+ font-size: 25px;
+ height: 15vh;
+}

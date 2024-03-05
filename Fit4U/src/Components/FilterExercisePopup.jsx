@@ -16,7 +16,7 @@ const FilterExercisePopup = ({setFilterPopup, setWorkoutExercises, workoutExerci
     //const [checkBoxTemp, setCheckBoxtemp] = useState(new Array(15).fill(1));
     const searchData = useRef()
     const [exercises, setExercises] = useState(null)
-    const options = [ //add bands its after Abductors 
+    const options = [ 
         { name: "Abdominals", index: 0 },
         { name: "Abductors", index: 1 },
         { name: "Biceps", index: 2 },
@@ -97,7 +97,9 @@ const FilterExercisePopup = ({setFilterPopup, setWorkoutExercises, workoutExerci
 
             <div>
               <h2>Select Muscles:</h2>
-              <select multiple>
+            </div>
+            <div>
+              <select multiple className ="filter-dropdown-menu" >
                 {options.map((option) => (
                   <option
                     key={option.index}
