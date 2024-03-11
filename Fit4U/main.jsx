@@ -11,6 +11,8 @@ import NewWorkout from './src/pages/NewWorkout'
 import ViewWorkout from './src/pages/ViewWorkout'
 import CreateUser from "./src/pages/CreateUser";
 import PasswordReset from "./src/pages/PasswordReset";
+import ConfirmationPage from "./src/pages/ConfirmationPage";
+import ForgotPassword from "./src/pages/ForgotPassword";
 
 
 
@@ -21,6 +23,8 @@ export const router = createBrowserRouter(
         <Route path="/login" element={<LoginPage />} />
         <Route path="/createuser" element={<CreateUser />} />
         <Route path="/passwordreset" element={<PasswordReset />} />
+        <Route path="/confirmationpage" element={<ConfirmationPage />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
       </Route>
       
       <Route path="/app" element={<ProtectedPage />}>

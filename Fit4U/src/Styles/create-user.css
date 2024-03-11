@@ -27,6 +27,7 @@
     margin-right: 25px;
     margin-top: 50px;
     margin-bottom: 50px;
+    text-align:center;
 }
 
 .SIGNUP {
@@ -54,7 +55,7 @@ button {
 
 .mytext{
     height: 50px;
-    width: 300px;
+    width: 293px;
     font-size: 25px;
 }
 
@@ -90,6 +91,13 @@ h4{
     font-family:verdana;
     font-size:20px;
     display: inline-block;
+}
+
+h5{
+    color: black;
+    font-size: 25px;
+    text-align:center;
+    font-family:verdana;
 }
 
 .btn {
