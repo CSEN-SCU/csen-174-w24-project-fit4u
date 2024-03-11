@@ -1,0 +1,112 @@
+.create-wrapper{
+    background-color: #D3D3D3;
+    margin-top: 300px;
+    margin-left: 25px;
+    margin-right: 25x;
+    height: 600px;
+    align-self: center;
+}
+
+.strong {
+    background-color:white;
+    display: inline-block;
+    width: 300px;
+    border: 1px solid #000;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.textbox {
+    background-color:white;
+    display: inline-block;
+    width: 300px;
+    border: 1px solid #000;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align:center;
+}
+
+.SIGNUP {
+    background-color: #C70039 ;
+
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+
+.RP {
+    background-color: #C70039;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+button {
+    height:100px;
+    width: 400px;
+    background-color:#C70039;
+    font-size: 50px;
+    color:white;
+    font-weight:bold;
+}
+
+.mytext{
+    height: 50px;
+    width: 293px;
+    font-size: 25px;
+}
+
+h1{
+    font-size: 25px;
+    color: white;
+    font-family: verdana;
+    text-align:center;
+}
+
+h2{
+    font-size: 50px;
+    background-color:red;
+    text-align: center;
+    font-family: verdana;
+}
+
+.newuser{
+    text-align: center;
+    color: black;
+    font-family:verdana;
+}
+
+h3{
+    color: black;
+    font-family:verdana;
+    font-size:20px;
+    white-space: nowrap;
+}
+
+h4{
+    color: blue;
+    font-family:verdana;
+    font-size:20px;
+    display: inline-block;
+}
+
+h5{
+    color: black;
+    font-size: 25px;
+    text-align:center;
+    font-family:verdana;
+}
+
+.btn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+

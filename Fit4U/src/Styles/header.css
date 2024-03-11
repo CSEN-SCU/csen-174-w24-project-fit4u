@@ -4,14 +4,12 @@
   position: fixed;
   justify-content: space-around;
   top: 0px;
-  height: 12%;
+  height: 12vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
-
-
 
 .wrapper > h1{
   color: #332929;
@@ -26,4 +24,8 @@
 .wrapper > button{
   background-color: transparent;
   border: 0 px transparent;
+}
+
+#menu-icon-rotated{
+  transform: rotate(90deg);
 }

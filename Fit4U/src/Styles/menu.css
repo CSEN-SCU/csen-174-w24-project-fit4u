@@ -1,0 +1,42 @@
+.menu-wrapper{
+  position: fixed;
+  background: #B82A25;
+  width: 100vw;
+  height: 90vh;
+  bottom: 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+
+.menu-item{
+  width: 18rem;
+  height: 8em;
+  background: #853835;
+  margin-top: 7vh;
+  padding: .5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #FFF;
+
+  text-align: center;
+  font-family: 'Koulen', sans-serif;
+  font-size: .5rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -2px;
+  line-height: normal;
+
+}
+
+.menu-item > h1{
+  text-align: center;
+}
+
+
+

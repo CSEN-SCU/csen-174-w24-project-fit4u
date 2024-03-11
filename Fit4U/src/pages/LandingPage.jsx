@@ -1,11 +1,13 @@
 import React from 'react'
-
+import CreateWorkout from '../Components/CreateWorkout'
+import ViewExercises from '../Components/ViewExercises'
 const LandingPage = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <div> 
+      <CreateWorkout />
+      <ViewExercises />
+   </div>
   )
 }
 
-export default LandingPage
+export default LandingPage;

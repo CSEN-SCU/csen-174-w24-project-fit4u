@@ -1,46 +1,43 @@
-import './style.css'
-import React, {useEffect} from 'react'
-import {createBrowserRouter, RouterProvider, createRoutesFromElements, Route, defer} from "react-router-dom";
+import "./style.css";
+import React from "react";
+import { createBrowserRouter, createRoutesFromElements, Route,} from "react-router-dom";
+import ProtectedPage from "./src/pages/protectedPage";
+import LoginPage from "./src/pages/loginPage";
+import AuthPage from "./src/pages/authPage";
+import UnauthPage from "./src/pages/unauthPage";
+import LandingPage from "./src/pages/landingPage";
 import ReactDOM from "react-dom/client";
-import ProtectedPage from './src/pages/protectedPage';
-import LoginPage from './src/pages/loginPage';
-import AuthPage from './src/pages/authPage';
-import UnauthPage from './src/pages/unauthPage';
-import LandingPage from './src/pages/landingPage';
+import NewWorkout from './src/pages/NewWorkout'
+import ViewWorkout from './src/pages/ViewWorkout'
+import CreateUser from "./src/pages/CreateUser";
+import PasswordReset from "./src/pages/PasswordReset";
+import ConfirmationPage from "./src/pages/ConfirmationPage";
+import ForgotPassword from "./src/pages/ForgotPassword";
 
-
-
-/*
-const getUserData = () =>
-  new Promise((resolve) =>
-    setTimeout(() => {
-      //Insert OAuth here
-      resolve(user);
-    }, 3000)
-  );
-
-  */
 
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
-
-
-      <Route element={<UnauthPage />}> 
+    <Route path="/" element={<AuthPage />} >
+      <Route element={<UnauthPage />}>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/createuser" element={<CreateUser />} />
+        <Route path="/passwordreset" element={<PasswordReset />} />
+        <Route path="/confirmationpage" element={<ConfirmationPage />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
+      </Route>
+      
+      <Route path="/app" element={<ProtectedPage />}>
+
+          <Route path="/app" element={<LandingPage />} /> 
+
+          <Route path="/app/newworkout" element={<NewWorkout />} /> 
+
+          <Route path="/app/viewworkout" element={<ViewWorkout />} /> 
+
       </Route>
 
-      <Route element={<ProtectedPage />}>
-        <Route path="/app" element={<LandingPage />} /> 
-
-      </Route>
 
     </Route>
-  
-
   )
-
-  );
-
-
+);
