@@ -125,9 +125,36 @@ const generateFilterSearch = (exercises, checkBox) => {
   const searchArray = []
  if(exercises !== null){
 		exercises.forEach(exercise => {
-      
-      
+      /*----------Difficulty----------*/
       if(checkBox[0][0]) {
+        if(exercise.difficulty == "beginner")  {
+     				searchArray.push({
+       			  key: `${exercise.id}`,
+       			  value: `${exercise.name} - ${exercise.difficulty}`
+            })
+        }
+      }
+      if(checkBox[0][1]) {
+        if(exercise.difficulty == "intermediate")  {
+     				searchArray.push({
+       			  key: `${exercise.id}`,
+       			  value: `${exercise.name} - ${exercise.difficulty}`
+            })
+        }
+      }
+      if(checkBox[0][2]) {
+        if(exercise.difficulty == "expert")  {
+     				searchArray.push({
+       			  key: `${exercise.id}`,
+       			  value: `${exercise.name} - ${exercise.difficulty}`
+            })
+        }
+      }
+
+
+
+      /*----------Muscles----------*/
+      if(checkBox[2][0]) {
         if(exercise.muscle == "abdominals")  {
      				searchArray.push({
        			  key: `${exercise.id}`,
@@ -137,7 +164,7 @@ const generateFilterSearch = (exercises, checkBox) => {
       }
 
 
-      if(checkBox[0][1]) {
+      if(checkBox[2][1]) {
         if(exercise.muscle == "abductors")  {
      				searchArray.push({
        			  key: `${exercise.id}`,
@@ -147,7 +174,7 @@ const generateFilterSearch = (exercises, checkBox) => {
       }
 
 
-      if(checkBox[0][2]) {
+      if(checkBox[2][2]) {
         if(exercise.muscle == "biceps")  {
      				searchArray.push({
        			  key: `${exercise.id}`,
@@ -157,7 +184,7 @@ const generateFilterSearch = (exercises, checkBox) => {
       }
 
 
-      if(checkBox[0][3]) {
+      if(checkBox[2][3]) {
         if(exercise.muscle == "calves")  {
      				searchArray.push({
        			  key: `${exercise.id}`,
@@ -167,7 +194,7 @@ const generateFilterSearch = (exercises, checkBox) => {
       }
 
 
-      if(checkBox[0][4]) {
+      if(checkBox[2][4]) {
         if(exercise.muscle == "chest")  {
      				searchArray.push({
        			  key: `${exercise.id}`,
@@ -177,7 +204,7 @@ const generateFilterSearch = (exercises, checkBox) => {
       }
 
 
-      if(checkBox[0][5]) {
+      if(checkBox[2][5]) {
         if(exercise.muscle == "forearms")  {
      				searchArray.push({
        			  key: `${exercise.id}`,
@@ -187,7 +214,7 @@ const generateFilterSearch = (exercises, checkBox) => {
       }
 
 
-      if(checkBox[0][6]) {
+      if(checkBox[2][6]) {
         if(exercise.muscle == "glutes")  {
      				searchArray.push({
        			  key: `${exercise.id}`,
@@ -197,7 +224,7 @@ const generateFilterSearch = (exercises, checkBox) => {
       }
 
 
-      if(checkBox[0][7]) {
+      if(checkBox[2][7]) {
         if(exercise.muscle == "hamstrings")  {
      				searchArray.push({
        			  key: `${exercise.id}`,
@@ -207,7 +234,7 @@ const generateFilterSearch = (exercises, checkBox) => {
       }
 
 
-      if(checkBox[0][8]) {
+      if(checkBox[2][8]) {
         if(exercise.muscle == "lats")  {
      				searchArray.push({
        			  key: `${exercise.id}`,
@@ -217,7 +244,7 @@ const generateFilterSearch = (exercises, checkBox) => {
       }
 
 
-      if(checkBox[0][9]) {
+      if(checkBox[2][9]) {
         if(exercise.muscle == "lower_back")  {
      				searchArray.push({
        			  key: `${exercise.id}`,
@@ -227,7 +254,7 @@ const generateFilterSearch = (exercises, checkBox) => {
       }
 
 
-      if(checkBox[0][10]) {
+      if(checkBox[2][10]) {
         if(exercise.muscle == "middle_back")  {
      				searchArray.push({
        			  key: `${exercise.id}`,
@@ -237,7 +264,7 @@ const generateFilterSearch = (exercises, checkBox) => {
       }
 
 
-      if(checkBox[0][11]) {
+      if(checkBox[2][11]) {
         if(exercise.muscle == "neck")  {
      				searchArray.push({
        			  key: `${exercise.id}`,
@@ -247,7 +274,7 @@ const generateFilterSearch = (exercises, checkBox) => {
       }
 
 
-      if(checkBox[0][12]) {
+      if(checkBox[2][12]) {
         if(exercise.muscle == "quadriceps")  {
      				searchArray.push({
        			  key: `${exercise.id}`,
@@ -256,7 +283,7 @@ const generateFilterSearch = (exercises, checkBox) => {
         }
       }
 
-      if(checkBox[0][13]) {
+      if(checkBox[2][13]) {
         if(exercise.muscle == "traps")  {
      				searchArray.push({
        			  key: `${exercise.id}`,
@@ -266,7 +293,7 @@ const generateFilterSearch = (exercises, checkBox) => {
       }
 
 
-      if(checkBox[0][14]) {
+      if(checkBox[2][14]) {
         if(exercise.muscle == "triceps")  {
      				searchArray.push({
        			  key: `${exercise.id}`,
