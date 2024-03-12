@@ -12,25 +12,36 @@ Make a new pop up for filter search, it mirrors ExercisePopup but the searchData
 Im moving everything over I did in AddExercisePopup to this, with slight tweaks. 
 */
 const FilterExercisePopup = ({setFilterPopup, setWorkoutExercises, workoutExercises, getMode, workout, setWorkout, setExercisePopup}) => {
-    const initialCheckboxState = new Array(4).fill(null).map(() => new Array(15).fill(0));
+    const initialCheckboxState = new Array(3).fill(null).map(() => new Array(15).fill(0));
     const [checkbox, setCheckbox] = useState(initialCheckboxState);
     const [searchData, setSearchData] = useState([{}]);
     const [exercises, setExercises] = useState(null);
     const [filterMuscle, setFilterMuscle] = useState(false);
     const [filterEquip, setFilterEquip] = useState(false);
     const [filterDif, setFilterDif] = useState(false);
-    const [filterType, setFilterType] = useState(false);
     const filterchoices = [
      { name: "Difficulty", index: 0 },
      { name: "Equipment", index: 1},
      { name: "Muscles", index:  2},
-     { name: "Type", index: 3}
     ];
 
     const difficultyoptions = [
       { name: "Beginner", index: 0},
       { name: "Intermediate", index: 1},
       { name: "Expert", index: 2}
+    ];
+
+    const equipoptions = [
+      { name: "Dumbell", index: 0 },
+      { name: "Barbell", index: 1 },
+      { name: "Machine", index: 2 },
+      { name: "EZ Curl Bar", index: 3 },
+      { name: "Bands", index: 4 },
+      { name: "Cable", index: 5 },
+      { name: "Kettlebells", index: 6 },
+      { name: "Body Only", index: 7 },
+      { name: "None", index: 8 },
+      { name: "Other", index: 9 }
     ];
 
     const options = [ 
@@ -71,19 +82,19 @@ const FilterExercisePopup = ({setFilterPopup, setWorkoutExercises, workoutExerci
         setCheckbox(tempArray);
         console.log(tempArray);
       }
+      if(filterEquip)
+      {
+        tempArray[1][index] = 1;
+        setCheckbox(tempArray);
+        console.log(tempArray);
+      }
       if(filterMuscle)
       {
-      
-        console.log(tempArray);
-    
-      // Parse the selected index from the dropdown
-    
-      // Set the selected index to 1
         tempArray[2][index] = 1;
-    
-      // Update the checkBox state
         setCheckbox(tempArray);
+        console.log(tempArray);
       }
+
         generateResult();
       
     };
@@ -92,26 +103,17 @@ const FilterExercisePopup = ({setFilterPopup, setWorkoutExercises, workoutExerci
       setFilterDif(false);
       setFilterEquip(false);
       setFilterMuscle(false);
-      setFilterType(false);
       if(event.target.value === "Difficulty")
       {
         setFilterDif(true);
-        console.log("Dif");
       }
       else if(event.target.value === "Equipment")
       {
         setFilterEquip(true);
-        console.log("Equpt");
       }
       else if(event.target.value === "Muscles")
       {
         setFilterMuscle(true);
-        console.log("Muscles");
-      }
-      else if(event.target.value === "Type")
-      {
-        setFilterType(true);
-        console.log("Type");
       }
 
      
@@ -163,11 +165,12 @@ const FilterExercisePopup = ({setFilterPopup, setWorkoutExercises, workoutExerci
 
             <div>
               <h2>Select Filter</h2>
-              {<select onChange={handleFilterboxChange} className="filter-dropdown-menu">
+              {<select onChange={handleFilterboxChange}  className="filter-dropdown-menu">
+                <option value="Select Filter"></option>
                 {filterchoices.map((choice) => (
                   <option
                     key={choice.index}
-                  >
+                  > 
                     {choice.name}
                   </option>
                 ))}
@@ -192,7 +195,18 @@ const FilterExercisePopup = ({setFilterPopup, setWorkoutExercises, workoutExerci
             </div>
             
             <div className = "Equipment">
-
+            { filterEquip && <select multiple className ="filter-dropdown-menu">
+                  {equipoptions.map((option) => (
+                    <option
+                      key={option.index}
+                      onClick={() => handleCheckboxChange(option.index)}
+                    >
+                    {option.name}
+                    </option>
+                    ))}
+                  </select>
+                  
+                  }
             </div>
 
             <div className = "Muscles">
@@ -206,10 +220,6 @@ const FilterExercisePopup = ({setFilterPopup, setWorkoutExercises, workoutExerci
                   </option>
                 ))}
               </select> }
-           </div>
-
-           <div className = "Type">
-
            </div>
 
            <div>

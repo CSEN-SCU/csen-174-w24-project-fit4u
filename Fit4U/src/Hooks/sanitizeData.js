@@ -151,6 +151,90 @@ const generateFilterSearch = (exercises, checkBox) => {
         }
       }
 
+      
+
+       /*----------Equipment----------*/
+       if(checkBox[1][0]) {
+        if(exercise.equipment == "dumbell")  {
+     				searchArray.push({
+       			  key: `${exercise.id}`,
+       			  value: `${exercise.name} - ${exercise.difficulty}`
+            })
+        }
+      }
+      if(checkBox[1][1]) {
+        if(exercise.equipment == "barbell")  {
+     				searchArray.push({
+       			  key: `${exercise.id}`,
+       			  value: `${exercise.name} - ${exercise.difficulty}`
+            })
+        }
+      }
+      if(checkBox[1][2]) {
+        if(exercise.equipment == "machine")  {
+     				searchArray.push({
+       			  key: `${exercise.id}`,
+       			  value: `${exercise.name} - ${exercise.difficulty}`
+            })
+        }
+      }
+      if(checkBox[1][3]) {
+        if(exercise.equipment == "e-z_curl_bar")  {
+     				searchArray.push({
+       			  key: `${exercise.id}`,
+       			  value: `${exercise.name} - ${exercise.difficulty}`
+            })
+        }
+      }
+      if(checkBox[1][4]) {
+        if(exercise.equipment == "bands")  {
+     				searchArray.push({
+       			  key: `${exercise.id}`,
+       			  value: `${exercise.name} - ${exercise.difficulty}`
+            })
+        }
+      }
+      if(checkBox[1][5]) {
+        if(exercise.equipment == "cable")  {
+     				searchArray.push({
+       			  key: `${exercise.id}`,
+       			  value: `${exercise.name} - ${exercise.difficulty}`
+            })
+        }
+      }
+      if(checkBox[1][6]) {
+        if(exercise.equipment == "kettlebells")  {
+     				searchArray.push({
+       			  key: `${exercise.id}`,
+       			  value: `${exercise.name} - ${exercise.difficulty}`
+            })
+        }
+      }
+      if(checkBox[1][7]) {
+        if(exercise.equipment == "body_only")  {
+     				searchArray.push({
+       			  key: `${exercise.id}`,
+       			  value: `${exercise.name} - ${exercise.difficulty}`
+            })
+        }
+      }
+      if(checkBox[1][8]) {
+        if(exercise.equipment == "none")  {
+     				searchArray.push({
+       			  key: `${exercise.id}`,
+       			  value: `${exercise.name} - ${exercise.difficulty}`
+            })
+        }
+      }
+      if(checkBox[1][9]) {
+        if(exercise.equipment == "other")  {
+     				searchArray.push({
+       			  key: `${exercise.id}`,
+       			  value: `${exercise.name} - ${exercise.difficulty}`
+            })
+        }
+      }
+
 
 
       /*----------Muscles----------*/
