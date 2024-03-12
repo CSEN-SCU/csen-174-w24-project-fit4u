@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { QueryClient, QueryClientProvider } from '@react-query';
+import AuthPage from './src/pages/AuthPage';
+import UnauthPage from './src/pages/UnauthPage';
+import ProtectedPage from './src/pages/ProtectedPage';
 
-export default function App() {
+const Stack = createStackNavigator();
+const queryClient = new QueryClient();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <QueryClientProvider client={queryClient}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Auth">
+          <Stack.Screen name="Auth" component={AuthPage} />
+          <Stack.Screen name="Unauth" component={UnauthPage} />
+          <Stack.Screen name="Protected" component={ProtectedPage} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </QueryClientProvider>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
