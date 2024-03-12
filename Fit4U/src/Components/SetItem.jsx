@@ -17,7 +17,7 @@ const SetItem = ({ set, setNum, getDataStatus, setDataSets, dataSets, getUnits, 
     "setNumber": `${setNum}`,
     "reps": `${reps}`,
     "volume": `${vol}`,
-    "rating": ''
+    "rating": `${rating}`
   }
 
   /*

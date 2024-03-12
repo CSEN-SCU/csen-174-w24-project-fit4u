@@ -1,48 +1,100 @@
+@media (max-width: 800px){
+    *{
+        text-align: center;
+        font-family: 'Koulen', sans-serif;
+        font-weight: 900;
+        letter-spacing: -1px;
+        line-height:150%;
+    }
 
-*{
-    text-align: center;
-    font-family: 'Koulen', sans-serif;
-    font-weight: 900;
-    letter-spacing: -1px;
-    line-height:150%;
+    .landing-option-wrapper{
+        width: 75%;
+        position: relative; 
+        margin: auto;
+        background: #853835;
+        text-align: center;
+        margin-bottom: 2rem;
+        height: 25vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .landing-option-wrapper > h2{
+        color: white;
+    }
+
+    .button-wrapper > button, .link-btn {
+        width: 75%;
+        height: 100%;
+        position: relative; 
+        margin: auto;
+        background-color: transparent;
+        border: 0 px transparent;
+        border-radius: 0px;
+        background: #EB0900;
+    }
+
+    .landing-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        top: 15vh;
+        height: 85vh;
+        width: 100vw;
+        overflow-y: scroll;
+    }
+
+    .landing-wrapper > h1{
+        text-align: center;
+    }
 }
 
-.landing-option-wrapper{
-    width: 75%;
-    position: relative; 
-    margin: auto;
-    background: #853835;
-    text-align: center;
-    margin-bottom: 2rem;
-    height: 25vh;
-    display: flex;
-    flex-direction: column;
-}
-.landing-option-wrapper > h2{
-    color: white;
-}
+@media (min-width: 801px){
+    *{
+        text-align: center;
+        font-family: 'Koulen', sans-serif;
+        font-weight: 900;
+        letter-spacing: -1px;
+        line-height:150%;
+    }
 
-.button-wrapper > button {
-    width: 75%;
-    height: 100%;
-    position: relative; 
-    margin: auto;
-    background-color: transparent;
-    border: 0 px transparent;
-    border-radius: 0px;
-    background: #EB0900;
-}
+    .landing-option-wrapper{
+        width: 75%;
+        position: relative; 
+        margin: auto;
+        background: #853835;
+        text-align: center;
+        margin-bottom: 2rem;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .landing-option-wrapper > h2{
+        color: white;
+    }
 
-.landing-wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    top: 15vh;
-    height: 85vh;
-    width: 100vw;
-    overflow-y: scroll;
-}
+    .button-wrapper > button, .link-btn {
+        width: 75%;
+        height: 100%;
+        position: relative; 
+        margin: auto;
+        background-color: transparent;
+        border: 0 px transparent;
+        border-radius: 0px;
+        background: #EB0900;
+    }
 
-.landing-wrapper > h1{
-    text-align: center;
+    .landing-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        top: 15%;
+        height: 85%;
+        width: 100vw;
+        overflow-y: scroll;
+    }
+
+    .landing-wrapper > h1{
+        text-align: center;
+    }
 }

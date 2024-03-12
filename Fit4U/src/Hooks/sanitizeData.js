@@ -110,6 +110,8 @@ const convertEditSet = async(reps, vol, setNumber, rating) => {
 
     return data
   }else if(reps && setNumber && rating){
+
+    console.log('contains rating')
     const data = {
       "setNumber": `${setNumber}`,
       "reps": `${reps}`,
@@ -123,13 +125,46 @@ const convertEditSet = async(reps, vol, setNumber, rating) => {
   }
 }
 
+const generateChartData = (exercise) => {
+  const weights = []
+  const dates = []
+
+  const options = {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+  };
+
+  if(exercise && exercise.weights){
+    exercise.weights.forEach((point, i) => {
+      let date = new Date(point.datetime)
+      weights.push(point.weight)
+      dates.push(date.toLocaleDateString())
+    })
+  }
+
+  const data = {
+    labels: dates,
+    datasets: [
+      {
+        label: "One Rep Max",
+        data: weights
+      }
+    ]
+  }
+
+
+  return data
+}
+
 const filters = {
   generateExerciseSearch,
   convertSearchResult,
   convertSet,
   convertExercise,
   convertEditExercise,
-  convertEditSet
+  convertEditSet,
+  generateChartData
 }
 
 export default filters

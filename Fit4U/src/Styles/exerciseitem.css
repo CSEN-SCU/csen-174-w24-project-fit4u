@@ -1,235 +1,475 @@
-.exercise-item-wrapper{
-  width: 90vw;
-  background: #D9D9D9;
-  position: relative;
-  margin: 1rem 0rem;
+@media (max-width: 800px){
+  .exercise-item-wrapper{
+    width: 90vw;
+    background: #D9D9D9;
+    position: relative;
+    margin: 1rem 0rem;
+  }
+
+  .exercise-name{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 72px;
+  }
+
+  .exercise-name-heart{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-clear{
+    display: flex;
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+  }
+
+  .heart-icon{
+    width: 28px;
+    height: 28px;
+    margin: 1rem;
+  }
+
+
+  .exercise-info{
+    text-align: left;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    margin-left: 0rem 1rem 0rem 0rem;
+  }
+
+  .exercise-info > select{
+    width: 70%;
+  }
+
+  .exercise-info > p, .exercise-info > p.difficulty-wrapper{
+    width: 70%;
+    text-align: left;
+    justify-content: left;
+  }
+
+  .info-container{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+  }
+
+  .set-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 7vh;
+  }
+
+  .set-wrapper-rep-only{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .set-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+  }
+
+  .set-info > .header{
+    display: flex;
+    flex-direction: row;
+    width: 75%;
+    justify-content: space-evenly;
+    align-self: flex-end;
+  }
+
+  .set-info > .sets-items, .set-info > .sets-items-timed{
+    width: 100%;
+  } 
+
+  .set-wrapper > .inputs > input{
+    width: 8vw;
+    height: 4vh;
+    margin: 0rem 1rem 0rem 1rem;
+  }
+
+  .sets-items > button, .sets-items-timed > button{
+    background: #853835;
+    border-radius: 0rem;
+    width: 80%;
+    margin: .5rem;
+    align-self: center;
+  }
+
+  .set-wrapper > .inputs > p{
+    width: 10vw;
+    height: 3.5vh;
+    margin: 0rem 1rem 0rem 1rem;
+    background: #853835;
+    color: white;
+    text-align: center;
+    vertical-align: center;
+  }
+
+  .set-wrapper > .inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .set-wrapper > h4, .set-wrapper-rep-only > h4{
+    width: 100%;
+  }
+
+  .set-wrapper > button, .set-wrapper-rep-only > button{
+    background: transparent;
+    border: 0px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+
+  .difficulty-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .difficulty{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: .5rem;
+  }
+
+  .timed-input{
+    display: flex;
+    flex-direction: row;
+    width: 20vw;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .timed-input > input{
+    width: 30%;
+    height: 4vh;
+    justify-content: end;
+    align-items: end;
+    align-self: center;
+  }
+
+  .timed-input > p{
+    padding: .25rem;
+  }
+
+  .sets-items{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .sets-items-timed{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+  .rep-only-inputs{
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .rep-only-inputs > input{
+    width: 16vw;
+    height: 4vh;
+
+  }
+
+  .exercise-options{
+    position: absolute;
+    top: 4rem;
+    background-color: #853835;
+    z-index: 4;
+    padding: 1rem;
+  }
+
+  .exercise-options > button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    letter-spacing: .8px;
+    font-weight: 500;
+    background-color: black;
+    width: 30vw;
+    height: 8vh;
+    margin: .2rem 1rem;
+    border-radius: 0px;
+    border-bottom: 3px solid #B82A25;
+    align-self: center;
+  }
 }
 
-.exercise-name{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-left: 72px;
-}
+@media (min-width: 801px){
+  .exercise-item-wrapper{
+    width: 270px;
+    background: #D9D9D9;
+    position: relative;
+    margin: 1rem 0rem;
+  }
 
-.exercise-name-heart{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
+  .exercise-name{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 72px;
+  }
 
-.btn-clear{
-  display: flex;
-  background: transparent;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  
-}
+  .exercise-name-heart{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 
-.heart-icon{
-  width: 28px;
-  height: 28px;
-  margin: 1rem;
-}
+  .btn-clear{
+    display: flex;
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+  }
 
-
-.exercise-info{
-  text-align: left;
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  align-items: center;
-  margin-left: 0rem 1rem 0rem 0rem;
-}
-
-.exercise-info > select{
-  width: 70%;
-}
-
-.exercise-info > p, .exercise-info > p.difficulty-wrapper{
-  width: 70%;
-  text-align: left;
-  justify-content: left;
-}
-
-.info-container{
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 2rem;
-  justify-content: space-between;
-}
-
-.set-wrapper{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 7vh;
-}
-
-.set-wrapper-rep-only{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.set-info{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 60vw;
-}
-
-.set-info > .header{
-  display: flex;
-  flex-direction: row;
-  width: 75%;
-  justify-content: space-evenly;
-  align-self: flex-end;
-}
-
-.set-info > .sets-items, .set-info > .sets-items-timed{
-  width: 100%;
-} 
-
-.set-wrapper > .inputs > input{
-  width: 8vw;
-  height: 4vh;
-  margin: 0rem 1rem 0rem 1rem;
-}
-
-.sets-items > button, .sets-items-timed > button{
-  background: #853835;
-  border-radius: 0rem;
-  width: 80%;
-  margin: .5rem;
-  align-self: center;
-}
-
-.set-wrapper > .inputs > p{
-  width: 10vw;
-  height: 3.5vh;
-  margin: 0rem 1rem 0rem 1rem;
-  background: #853835;
-  color: white;
-  text-align: center;
-  vertical-align: center;
-}
-
-.set-wrapper > .inputs {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.set-wrapper > h4, .set-wrapper-rep-only > h4{
-  width: 100%;
-}
-
-.set-wrapper > button, .set-wrapper-rep-only > button{
-  background: transparent;
-  border: 0px;
-  height: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
+  .heart-icon{
+    width: 28px;
+    height: 28px;
+    margin: 1rem;
+  }
 
 
-.difficulty-wrapper{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
+  .exercise-info{
+    text-align: left;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    margin-left: 0rem 1rem 0rem 0rem;
+  }
 
-.difficulty{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: .5rem;
-}
+  .exercise-info > select{
+    width: 70%;
+  }
 
-.timed-input{
-  display: flex;
-  flex-direction: row;
-  width: 20vw;
-  align-self: center;
-  justify-content: center;
-  align-items: center;
+  .exercise-info > p, .exercise-info > p.difficulty-wrapper{
+    width: 70%;
+    text-align: left;
+    justify-content: left;
+  }
 
-}
+  .info-container{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+  }
 
-.timed-input > input{
-  width: 30%;
-  height: 4vh;
-  justify-content: end;
-  align-items: end;
-  align-self: center;
-}
+  .set-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 7vh;
+  }
 
-.timed-input > p{
-  padding: .25rem;
-}
+  .set-wrapper-rep-only{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
 
-.sets-items{
-  display: flex;
-  flex-direction: column;
-  align-self: flex-end;
-  justify-content: flex-start;
-  align-items: center;
-}
+  .set-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+  }
 
-.sets-items-timed{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
+  .set-info > .header{
+    display: flex;
+    flex-direction: row;
+    width: 75%;
+    justify-content: space-evenly;
+    align-self: flex-end;
+  }
+
+  .set-info > .sets-items, .set-info > .sets-items-timed{
+    width: 100%;
+  } 
+
+  .set-wrapper > .inputs > input{
+    width: 24px;
+    height: 4vh;
+    margin: 0rem 1rem 0rem 1rem;
+  }
+
+  .sets-items > button, .sets-items-timed > button{
+    background: #853835;
+    border-radius: 0rem;
+    width: 80%;
+    margin: .5rem;
+    align-self: center;
+  }
+
+  .set-wrapper > .inputs > p{
+    width: 10vw;
+    height: 3.5vh;
+    margin: 0rem 1rem 0rem 1rem;
+    background: #853835;
+    color: white;
+    text-align: center;
+    vertical-align: center;
+  }
+
+  .set-wrapper > .inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .set-wrapper > h4, .set-wrapper-rep-only > h4{
+    width: 100%;
+  }
+
+  .set-wrapper > button, .set-wrapper-rep-only > button{
+    background: transparent;
+    border: 0px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+
+  .difficulty-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .difficulty{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: .5rem;
+  }
+
+  .timed-input{
+    display: flex;
+    flex-direction: row;
+    width: 20vw;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .timed-input > input{
+    width: 30%;
+    height: 4vh;
+    justify-content: end;
+    align-items: end;
+    align-self: center;
+  }
+
+  .timed-input > p{
+    padding: .25rem;
+  }
+
+  .sets-items{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .sets-items-timed{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 
 
 
-.rep-only-inputs{
-  width: 60vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
+  .rep-only-inputs{
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 
-.rep-only-inputs > input{
-  width: 16vw;
-  height: 4vh;
+  .rep-only-inputs > input{
+    width: 16vw;
+    height: 4vh;
 
-}
+  }
 
-.exercise-options{
-  position: absolute;
-  top: 4rem;
-  background-color: #853835;
-  z-index: 4;
-  padding: 1rem;
-}
+  .exercise-options{
+    position: absolute;
+    top: 4rem;
+    background-color: #853835;
+    z-index: 4;
+    padding: 1rem;
+  }
 
-.exercise-options > button {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: white;
-  letter-spacing: .8px;
-  font-weight: 500;
-  background-color: black;
-  width: 30vw;
-  height: 8vh;
-  margin: .2rem 1rem;
-  border-radius: 0px;
-  border-bottom: 3px solid #B82A25;
-  align-self: center;
+  .exercise-options > button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    letter-spacing: .8px;
+    font-weight: 500;
+    background-color: black;
+    width: 30vw;
+    height: 8vh;
+    margin: .2rem 1rem;
+    border-radius: 0px;
+    border-bottom: 3px solid #B82A25;
+    align-self: center;
+  }
 }
