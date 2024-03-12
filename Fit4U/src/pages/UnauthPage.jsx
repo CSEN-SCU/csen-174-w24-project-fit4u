@@ -1,30 +1,42 @@
-import React from 'react'
-import { useOutlet, useParams } from 'react-router'
-import UnauthHeader from '../Components/UnauthHeader'
-import '../Styles/unauth.css'
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import { useRoute } from '@react-navigation/native';
+import UnauthHeader from '../components/UnauthHeader';
 
 const UnauthPage = () => {
-
-  const outlet = useOutlet()
-  const params = useParams()
+  const route = useRoute();
+  const { outlet } = route.params;
 
   let display;
 
-  if(params.pathname = '/login'){
-    display = outlet
+  if (route.name === 'Login') {
+    display = outlet;
   }
 
-
   return (
-    <div className='unauth-wrapper'>
-      <div className='header-wrapper'>
+    <View style={styles.unauthWrapper}>
+      <View style={styles.headerWrapper}>
         <UnauthHeader />
-      </div>
-      <div className="content-wrapper">
-        {display}
-      </div>
-    </div>
-  )
-}
+      </View>
+      <View style={styles.contentWrapper}>{display}</View>
+    </View>
+  );
+};
 
-export default UnauthPage
+const styles = StyleSheet.create({
+  unauthWrapper: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    backgroundColor: '#ffffff', // Example background color
+  },
+  headerWrapper: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  contentWrapper: {
+    flex: 1,
+  },
+});
+
+export default UnauthPage;

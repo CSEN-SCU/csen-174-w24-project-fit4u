@@ -1,13 +1,30 @@
-import React from 'react'
-import { useOutlet } from 'react-router'
-import Header from '../Components/Header'
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import { useRoute } from '@react-navigation/native';
+import Header from '../Components/Header';
 
 const ProtectedPage = () => {
-  return (
-    <div className='app-wrapper'>
-      <Header></Header>
-    </div>
-  )
-}
+  const route = useRoute();
+  const { outlet } = route.params;
 
-export default ProtectedPage
+  return (
+    <View style={styles.appWrapper}>
+      <Header />
+      <View style={styles.contentWrapper}>
+        {outlet}
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  appWrapper: {
+    flex: 1,
+    backgroundColor: '#ffffff', // Example background color
+  },
+  contentWrapper: {
+    flex: 1,
+  },
+});
+
+export default ProtectedPage;
