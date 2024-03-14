@@ -121,279 +121,130 @@ const convertEditSet = async(reps, vol, setNumber, rating) => {
   }
 }
 
-const generateFilterSearch = (exercises, checkBox) => {
-  const searchArray = []
+const generateFilterSearch = (exercises, diffObject, equipObject, muscleObject) => {
+  let diffArray = []; 
+  let equipArray = [];
+  let muscleArray = [];
+  let searchArray =[];
+  let searchArray2 = [];
+  let array1 = [];
+  let array2 = [];
+  let ar1 =[];
+  let ar2 = [];
+
  if(exercises !== null){
-		exercises.forEach(exercise => {
-      /*----------Difficulty----------*/
-      if(checkBox[0][0]) {
-        if(exercise.difficulty == "beginner")  {
-     				searchArray.push({
+  console.log(diffObject); 
+  console.log(equipObject);
+
+		  exercises.forEach(exercise => {
+        if( diffObject.some(obj => obj.name === exercise.difficulty) ) {
+     		  		diffArray.push({
        			  key: `${exercise.id}`,
        			  value: `${exercise.name} - ${exercise.difficulty}`
             })
-        }
-      }
-      if(checkBox[0][1]) {
-        if(exercise.difficulty == "intermediate")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
+          }
+      }) 
+    
+      exercises.forEach(index => {
+        if(equipObject.some(obj => obj.name === index.equipment) ) {
+     		  		equipArray.push({
+       			  key: `${index.id}`,
+       			  value: `${index.name} - ${index.equipment}`
             })
-        }
-      }
-      if(checkBox[0][2]) {
-        if(exercise.difficulty == "expert")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
+          }
+      })  
+
+      exercises.forEach(index => {
+        if(muscleObject.some(obj => obj.name === index.muscle) ) {
+     		  		muscleArray.push({
+       			  key: `${index.id}`,
+       			  value: `${index.name} - ${index.muscle}`
             })
-        }
-      }
+          }
+      })
 
       
-
-       /*----------Equipment----------*/
-       if(checkBox[1][0]) {
-        if(exercise.equipment == "dumbell")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
+    if(diffArray.length && equipArray.length)
+    {
+      if(diffArray.length > equipArray.length)
+      {
+          array1 = diffArray;
+          array2 = equipArray;
       }
-      if(checkBox[1][1]) {
-        if(exercise.equipment == "barbell")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
+      else 
+      {
+          array2 = diffArray;
+          array1 = equipArray;
       }
-      if(checkBox[1][2]) {
-        if(exercise.equipment == "machine")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
+      array1.forEach((index1) => {
+        array2.forEach((index2) => {
+          if(index1.key === index2.key)
+          {
+            searchArray.push({
+              key: `${index1.key}`,
+              value: `${index1.value}`
             })
-        }
+          }
+        })
+      })
+      
+    }
+    else if(diffArray.length && !equipArray.length)
+    {
+      searchArray = [...diffArray];
+    }
+    else if(equipArray.length && !diffArray.length)
+    {
+      searchArray = [...equipArray];
+    }
+
+    if(searchArray.length && muscleArray.length)
+    {
+      if(searchArray.length > muscleArray.length)
+      {
+        ar1 = searchArray;
+        ar2 = muscleArray;
       }
-      if(checkBox[1][3]) {
-        if(exercise.equipment == "e-z_curl_bar")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
+      else
+      {
+        ar2 = searchArray;
+        ar1 = muscleArray;
       }
-      if(checkBox[1][4]) {
-        if(exercise.equipment == "bands")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-      if(checkBox[1][5]) {
-        if(exercise.equipment == "cable")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-      if(checkBox[1][6]) {
-        if(exercise.equipment == "kettlebells")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-      if(checkBox[1][7]) {
-        if(exercise.equipment == "body_only")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-      if(checkBox[1][8]) {
-        if(exercise.equipment == "none")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-      if(checkBox[1][9]) {
-        if(exercise.equipment == "other")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
+      ar1.forEach((index1) =>{
+        ar2.forEach((index2) => {
+          if(index1.key === index2.key)
+          {
+          searchArray2.push({
+            key: `${index1.key}`,
+            value: `${index1.value}`
+          })
+          }
+        })
+      })
+    }
+    else if(searchArray.length && !muscleArray.length)
+    {
+      searchArray2 = [...searchArray];
+    }
+    else if(!searchArray.length && muscleArray.length)
+    {
+      searchArray2 = [...muscleArray];
+    }
 
 
 
-      /*----------Muscles----------*/
-      if(checkBox[2][0]) {
-        if(exercise.muscle == "abdominals")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
 
-
-      if(checkBox[2][1]) {
-        if(exercise.muscle == "abductors")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-
-
-      if(checkBox[2][2]) {
-        if(exercise.muscle == "biceps")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-
-
-      if(checkBox[2][3]) {
-        if(exercise.muscle == "calves")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-
-
-      if(checkBox[2][4]) {
-        if(exercise.muscle == "chest")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-
-
-      if(checkBox[2][5]) {
-        if(exercise.muscle == "forearms")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-
-
-      if(checkBox[2][6]) {
-        if(exercise.muscle == "glutes")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-
-
-      if(checkBox[2][7]) {
-        if(exercise.muscle == "hamstrings")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-
-
-      if(checkBox[2][8]) {
-        if(exercise.muscle == "lats")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-
-
-      if(checkBox[2][9]) {
-        if(exercise.muscle == "lower_back")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-
-
-      if(checkBox[2][10]) {
-        if(exercise.muscle == "middle_back")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-
-
-      if(checkBox[2][11]) {
-        if(exercise.muscle == "neck")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-
-
-      if(checkBox[2][12]) {
-        if(exercise.muscle == "quadriceps")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-
-      if(checkBox[2][13]) {
-        if(exercise.muscle == "traps")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-
-
-      if(checkBox[2][14]) {
-        if(exercise.muscle == "triceps")  {
-     				searchArray.push({
-       			  key: `${exercise.id}`,
-       			  value: `${exercise.name} - ${exercise.difficulty}`
-            })
-        }
-      }
-
-    })
+      
  }
-
-
-  if(searchArray.length !== 0){
-    return searchArray;
+console.log("diffArray", diffArray); //pulls 
+console.log("equipArray", equipArray);
+console.log("muscle array", muscleArray);
+console.log("search array", searchArray);
+console.log("search array2", searchArray2);
+  if(searchArray2.length !== 0){
+    return searchArray2;
   }else{
-    return false;
+    return [];
   }
 }
 

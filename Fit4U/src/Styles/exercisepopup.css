@@ -23,8 +23,12 @@
 
 
 .filter-dropdown-menu {
- width: 70vw;
  font-size: 25px;
- height: 15vh;
  background-color: #853835;
+ height: auto;
+}
+
+.filter-box {
+  display: flex;
+  justify-content: space-around;
 }
