@@ -7,6 +7,13 @@
     <title>Vite App</title>
   </head>
   <body>
+    <script>
+      let h = window.innerHeight;
+      let w = window.innerWidth;
+      if(w > 400 || h > 800){
+        window.resizeTo(300, 700)
+      }
+    </script>
     <div id="root"></div>
     <script type="module" src="./index.jsx"></script>
     

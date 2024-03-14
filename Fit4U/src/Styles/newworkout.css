@@ -1,12 +1,28 @@
-.workout-wrapper{
-  position: relative;
-  z-index: 1;
+
+@media (max-width: 800px){
+  .workout-wrapper{
+    position: relative;
+    z-index: 1;
+  }
+
+  .popup{
+    position: absolute;
+    z-index: 2;
+    margin: 0vh 4vw;
+    bottom: 15rem;
+  }
 }
 
-.popup{
-  position: absolute;
-  z-index: 2;
-  margin: 0vh 4vw;
-  bottom: 15rem;
+@media (min-width: 801px){
+  .workout-wrapper{
+    position: relative;
+    z-index: 1;
+  }
+
+  .popup{
+    position: fixed;
+    z-index: 2;
+    top: 67px;
+  }
 }
 

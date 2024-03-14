@@ -31,22 +31,22 @@ const convertSearchResult = (targetId, exercises) => {
 }
 
 const convertSet = async(reps, vol, setNumber, rating) => {
-  if(reps && setNumber){
+  if(reps && setNumber && rating){
     const data = {
     "setNumber": `${setNumber}`,
     "reps": `${reps}`,
     "volume": `${vol}`,
-    "rating": ''
+    "rating": `${rating}`
     }
 
 
     return data
-  }else if(reps && setNumber && rating){
+  }else if(reps && setNumber && !rating){
     const data = {
       "setNumber": `${setNumber}`,
       "reps": `${reps}`,
       "volume": `${vol}`,
-      "rating": `${rating}`
+      "rating": ``
     }
     return data
   }else{
@@ -99,24 +99,24 @@ const convertEditExercise = (exercise, exerciseName, unit, sets) => {
 }
 
 const convertEditSet = async(reps, vol, setNumber, rating) => {
-  if(reps && setNumber){
+
+  if(reps && setNumber && rating){
     const data = {
     "setNumber": `${setNumber}`,
     "reps": `${reps}`,
     "volume": `${vol}`,
-    "rating": ''
+    "rating": `${rating}`
     }
 
-
     return data
-  }else if(reps && setNumber && rating){
+  }else if(reps && setNumber && !rating){
 
     console.log('contains rating')
     const data = {
       "setNumber": `${setNumber}`,
       "reps": `${reps}`,
       "volume": `${vol}`,
-      "rating": `${rating}`
+      "rating": ``
     }
     return data
   }else{

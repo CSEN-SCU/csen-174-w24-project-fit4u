@@ -238,7 +238,7 @@
 
 @media (min-width: 801px){
   .exercise-item-wrapper{
-    width: 270px;
+    width: 350px;
     background: #D9D9D9;
     position: relative;
     margin: 1rem 0rem;
@@ -249,7 +249,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-left: 72px;
   }
 
   .exercise-name-heart{
@@ -277,20 +276,20 @@
 
   .exercise-info{
     text-align: left;
-    width: 30%;
+    width: 100px;
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-items: center;
-    margin-left: 0rem 1rem 0rem 0rem;
+    margin: 0rem .5rem;
   }
 
   .exercise-info > select{
-    width: 70%;
+    width: 100%;
   }
 
   .exercise-info > p, .exercise-info > p.difficulty-wrapper{
-    width: 70%;
+    width: 100%;
     text-align: left;
     justify-content: left;
   }
@@ -308,6 +307,7 @@
     justify-content: space-evenly;
     align-items: center;
     height: 7vh;
+
   }
 
   .set-wrapper-rep-only{
@@ -315,7 +315,11 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    max-width: 200px;
+  }
+
+  .set-wrapper-rep-only > .rep-only-inputs > input{
+    width: 50px;
   }
 
   .set-info{
@@ -323,25 +327,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 180px;
   }
 
   .set-info > .header{
     display: flex;
     flex-direction: row;
-    width: 75%;
     justify-content: space-evenly;
     align-self: flex-end;
+    width: 150px;
   }
+
 
   .set-info > .sets-items, .set-info > .sets-items-timed{
     width: 100%;
   } 
 
   .set-wrapper > .inputs > input{
-    width: 24px;
+    width: 36px;
     height: 4vh;
-    margin: 0rem 1rem 0rem 1rem;
+    margin: 0rem .5rem 0rem .5rem;
   }
 
   .sets-items > button, .sets-items-timed > button{
@@ -353,8 +357,8 @@
   }
 
   .set-wrapper > .inputs > p{
-    width: 10vw;
-    height: 3.5vh;
+    width: 50px;
+    height: 25px;
     margin: 0rem 1rem 0rem 1rem;
     background: #853835;
     color: white;
@@ -465,7 +469,7 @@
     letter-spacing: .8px;
     font-weight: 500;
     background-color: black;
-    width: 30vw;
+    width: 120px;
     height: 8vh;
     margin: .2rem 1rem;
     border-radius: 0px;

@@ -91,7 +91,7 @@ const NewWorkout = () => {
     }else if(mode === 'view' && workout){
       return <WorkoutItem  workout={workout} setMode={setMode} />
     }else if(mode === 'edit' && workout){
-      return <EditWorkout workout={workout} setExercisePopup={setExercisePopup} externalExercises={externalExercises} setMode={setMode}/>
+      return <EditWorkout workout={workout} setExercisePopup={setExercisePopup} externalExercises={externalExercises} setMode={setMode} deleteExercise={deleteExercise} />
     }else if(mode === 'plan'){
       if(workoutExercises.length > 0){
         return <LogWorkout setExercisePopup={setExercisePopup} workoutExercises={workoutExercises} getMode={getMode} setMode={setMode} passedTitle={plan.name} deleteExercise={deleteExercise} />

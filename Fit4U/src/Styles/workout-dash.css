@@ -160,7 +160,7 @@
   }
 
   .item-wrapper{
-    width: 74vw;
+    width: 320px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

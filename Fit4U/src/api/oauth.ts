@@ -7,7 +7,7 @@ export type { OAuthCredential, OAuthUrl };
 
 export const TOKEN_KEY = "token";
 
-const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = "http://0.0.0.0:8000";
 
 export const client = axios.create({
   baseURL: BASE_URL,
