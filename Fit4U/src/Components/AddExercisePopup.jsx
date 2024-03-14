@@ -4,10 +4,29 @@ import '../Styles/exercisepopup.css'
 import filters from '../Hooks/sanitizeData'
 import ReactSearchBox from 'react-search-box'
 import { StarIcon } from '@heroicons/react/24/solid'
+import FilterExercisePopup from './FilterExercisePopup'
 
 const AddExercisePopup = ({exercises, setExercisePopup, setWorkoutExercises, workoutExercises, getMode, workout, setWorkout}) => {
 
   const searchData = useRef()
+
+
+
+
+  useEffect(() => {
+    const getExercises = () => {
+      calls.getExercises(setExercises)
+
+    }
+
+    getExercises()
+    
+
+  }, [])
+
+
+
+
 
   const handleSelect = (record) => {
     if(getMode() === 'new' || getMode() === 'plan'){
@@ -40,6 +59,7 @@ const AddExercisePopup = ({exercises, setExercisePopup, setWorkoutExercises, wor
     <div className='add-exercise-wrapper'>
       <div className='popup-header'>
         <h2>Add Exercise</h2>
+        <button onClick={()=>setFilterPopup(true)}>Filter</button>
         <button onClick={() => setExercisePopup(false)}>X</button>
       </div>
       {exercises ? <ReactSearchBox 

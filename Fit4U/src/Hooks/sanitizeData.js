@@ -157,6 +157,134 @@ const generateChartData = (exercise) => {
   return data
 }
 
+const generateFilterSearch = (exercises, diffObject, equipObject, muscleObject) => {
+  let diffArray = []; 
+  let equipArray = [];
+  let muscleArray = [];
+  let searchArray =[];
+  let searchArray2 = [];
+  let array1 = [];
+  let array2 = [];
+  let ar1 =[];
+  let ar2 = [];
+
+ if(exercises !== null){
+  console.log(diffObject); 
+  console.log(equipObject);
+
+		  exercises.forEach(exercise => {
+        if( diffObject.some(obj => obj.name === exercise.difficulty) ) {
+     		  		diffArray.push({
+       			  key: `${exercise.id}`,
+       			  value: `${exercise.name} - ${exercise.difficulty}`
+            })
+          }
+      }) 
+    
+      exercises.forEach(index => {
+        if(equipObject.some(obj => obj.name === index.equipment) ) {
+     		  		equipArray.push({
+       			  key: `${index.id}`,
+       			  value: `${index.name} - ${index.equipment}`
+            })
+          }
+      })  
+
+      exercises.forEach(index => {
+        if(muscleObject.some(obj => obj.name === index.muscle) ) {
+     		  		muscleArray.push({
+       			  key: `${index.id}`,
+       			  value: `${index.name} - ${index.muscle}`
+            })
+          }
+      })
+
+      
+    if(diffArray.length && equipArray.length)
+    {
+      if(diffArray.length > equipArray.length)
+      {
+          array1 = diffArray;
+          array2 = equipArray;
+      }
+      else 
+      {
+          array2 = diffArray;
+          array1 = equipArray;
+      }
+      array1.forEach((index1) => {
+        array2.forEach((index2) => {
+          if(index1.key === index2.key)
+          {
+            searchArray.push({
+              key: `${index1.key}`,
+              value: `${index1.value}`
+            })
+          }
+        })
+      })
+      
+    }
+    else if(diffArray.length && !equipArray.length)
+    {
+      searchArray = [...diffArray];
+    }
+    else if(equipArray.length && !diffArray.length)
+    {
+      searchArray = [...equipArray];
+    }
+
+    if(searchArray.length && muscleArray.length)
+    {
+      if(searchArray.length > muscleArray.length)
+      {
+        ar1 = searchArray;
+        ar2 = muscleArray;
+      }
+      else
+      {
+        ar2 = searchArray;
+        ar1 = muscleArray;
+      }
+      ar1.forEach((index1) =>{
+        ar2.forEach((index2) => {
+          if(index1.key === index2.key)
+          {
+          searchArray2.push({
+            key: `${index1.key}`,
+            value: `${index1.value}`
+          })
+          }
+        })
+      })
+    }
+    else if(searchArray.length && !muscleArray.length)
+    {
+      searchArray2 = [...searchArray];
+    }
+    else if(!searchArray.length && muscleArray.length)
+    {
+      searchArray2 = [...muscleArray];
+    }
+
+
+
+
+      
+ }
+console.log("diffArray", diffArray); //pulls 
+console.log("equipArray", equipArray);
+console.log("muscle array", muscleArray);
+console.log("search array", searchArray);
+console.log("search array2", searchArray2);
+  if(searchArray2.length !== 0){
+    return searchArray2;
+  }else{
+    return [];
+  }
+}
+
+
 const filters = {
   generateExerciseSearch,
   convertSearchResult,
@@ -164,7 +292,8 @@ const filters = {
   convertExercise,
   convertEditExercise,
   convertEditSet,
-  generateChartData
+  generateChartData,
+  generateFilterSearch
 }
 
 export default filters
