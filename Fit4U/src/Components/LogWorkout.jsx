@@ -58,6 +58,7 @@ export default function LogWorkout({ onAdd, setExercisePopup, workoutExercises, 
             console.log(data)
             calls.createWorkout(data, setResponse)
             navigate('/app/workouts')
+            window.location.reload()
             
           }
         }catch (error){

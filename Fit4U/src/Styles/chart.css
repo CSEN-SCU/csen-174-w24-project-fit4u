@@ -26,11 +26,3 @@ select > option{
   height: 6vh;
   font-size: 1.5rem;
 }
-
-.day-select{
-  position: relative;
-}
-
-.day-select > button{
-  background: #853835;
-}

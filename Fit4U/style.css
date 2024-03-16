@@ -101,13 +101,13 @@
     place-items: center;
     border: 3px solid black;
     height: 700px;
-    width: 400px;
+    width: 300px;
     position: relative;
   }
 
 
   *{
-    max-width: 400px;
+    max-width: 300px;
     max-height: 800px;
   }
 

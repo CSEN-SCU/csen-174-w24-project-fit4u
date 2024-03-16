@@ -4,16 +4,13 @@ import EditSetItem from './EditSetItem';
 import filters from '../../Hooks/sanitizeData';
 import Difficulty from '../Difficulty';
 import calls from '../../Hooks/calls';
-import ExerciseOptions from '../ExerciseOptions';
-import { EllipsisHorizontalCircleIcon, HeartIcon} from '@heroicons/react/24/solid';
-const EditExerciseItem = ({exercise, getDataStatus, dataExercises, setDataExercises, exercises, deleteExercise }) => {
+
+const EditExerciseItem = ({exercise, getDataStatus, dataExercises, setDataExercises, exercises }) => {
 
   const [sets, setSets] = useState(exercise ? exercise.sets.length : 0)
   const [dataSets, setDataSets] = useState([])
   const [unit, setUnit] = useState(exercise.unit)
   const [convertedExercise, setConvertedExercise] = useState(filters.convertSearchResult(exercise.externalExercise, exercises))
-  const [optionsOpen, setOptionsOpen] = useState(false)
-  const [favorite, setFavorite] = useState(exercise.favorite)
 
 
   const getUnits = () => {
@@ -59,11 +56,8 @@ const EditExerciseItem = ({exercise, getDataStatus, dataExercises, setDataExerci
     if(exercise && convertedExercise){
       return ( 
       <>
-        <div className={favorite ? 'exercise-name-heart' : 'exercise-name'}>
-        {favorite ? <div className='heart-icon'><HeartIcon EllipsisHorizontalCircleIcon height={28} width={28} color='#853835'/></div> : <></>}
+        <div className='exercise-name'>
           <h2>{exercise.name}</h2>
-          <button className='btn-clear' onClick={() => setOptionsOpen(!optionsOpen)}><EllipsisHorizontalCircleIcon height={28} width={28} margin={4} color='#853835'/></button>
-          {optionsOpen ? <ExerciseOptions deleteExercise={deleteExercise} exercise={exercise} setFavoriteItem={setFavorite} favorite={favorite} /> : <></>}
         </div>
         <div className='info-container'>
           <div className='exercise-info'>

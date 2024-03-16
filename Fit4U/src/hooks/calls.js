@@ -171,12 +171,8 @@ const updateWorkoutPlan = (id, data) => {
   }); 
 }
 
-const getAnalyze = (setAnalyze, days) => {
-  let request = `api/analyze/?days=${days}`
-  if(!days){
-    request = `api/analyze/?days=7`
-  }
-  const fetchPromise = userServices.getAll(request);
+const getAnalyze = (setAnalyze) => {
+  const fetchPromise = userServices.getAll("api/analyze/");
   fetchPromise.then(response => {
     console.log(response)
     setAnalyze(response.data.analysis)

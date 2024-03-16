@@ -3,7 +3,7 @@ import EditExerciseItem from './EditExerciseItem';
 import calls from '../../Hooks/calls';
 import { useParams, useNavigate } from 'react-router';
 
-const EditWorkout = ({ setExercisePopup, workout, externalExercises, setMode, deleteExercise}) => {
+const EditWorkout = ({ setExercisePopup, workout, externalExercises, setMode}) => {
   
   const [title, setTitle] = useState(workout.name);
   const [getData, setGetData] = useState(false)
@@ -72,7 +72,7 @@ let items
 
 const generateExerciseItems = () => {
  
-  return( workout.exercises.map((exercise) => <EditExerciseItem exercise={exercise} getDataStatus={getDataStatus} dataExercises={dataExercises} setDataExercises={setDataExercises} key={exercise.id} exercises={externalExercises} deleteExercise={deleteExercise}/>  ))
+  return( workout.exercises.map((exercise) => <EditExerciseItem exercise={exercise} getDataStatus={getDataStatus} dataExercises={dataExercises} setDataExercises={setDataExercises} key={exercise.id} exercises={externalExercises} />  ))
 
 }
 

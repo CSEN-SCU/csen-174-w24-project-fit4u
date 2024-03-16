@@ -6,7 +6,6 @@ import { useParams, useLocation } from 'react-router'
 import calls from '../Hooks/calls'
 import WorkoutItem from '../Components/WorkoutItem'
 import EditWorkout from '../Components/EditWorkout/EditWorkout'
-import FilterExercisePopup from '../Components/FilterExercisePopup'
 import filters from '../Hooks/sanitizeData'
 
 const NewWorkout = () => {
@@ -28,9 +27,6 @@ const NewWorkout = () => {
   }
   
   const [exercisePopup, setExercisePopup] = useState(false)
-
-  const [filterPopup, setFilterPopup] = useState(false)
-
   const [workoutExercises, setWorkoutExercises] = useState([])
   const [mode, setMode] = useState(decideMode())
   const [workout, setWorkout] = useState()
@@ -95,7 +91,7 @@ const NewWorkout = () => {
     }else if(mode === 'view' && workout){
       return <WorkoutItem  workout={workout} setMode={setMode} />
     }else if(mode === 'edit' && workout){
-      return <EditWorkout workout={workout} setExercisePopup={setExercisePopup} externalExercises={externalExercises} setMode={setMode} deleteExercise={deleteExercise} />
+      return <EditWorkout workout={workout} setExercisePopup={setExercisePopup} externalExercises={externalExercises} setMode={setMode}/>
     }else if(mode === 'plan'){
       if(workoutExercises.length > 0){
         return <LogWorkout setExercisePopup={setExercisePopup} workoutExercises={workoutExercises} getMode={getMode} setMode={setMode} passedTitle={plan.name} deleteExercise={deleteExercise} />
@@ -115,10 +111,7 @@ const NewWorkout = () => {
     <div className='workout-wrapper'>
 
         <div className='popup'>
-          {exercisePopup && externalExercises ? <AddExercisePopup exercises={externalExercises} setExercisePopup={setExercisePopup} setWorkoutExercises={setWorkoutExercises} getMode={getMode}  workout={workout} setWorkout={setWorkout} setFilterPopup={setFilterPopup}/> : <></> }
-        </div>
-        <div className='popup'>
-          {filterPopup && externalExercises ? <FilterExercisePopup exercises={externalExercises} setFilterPopup={setFilterPopup} setWorkoutExercises={setWorkoutExercises} getMode={getMode} workout={workout} setWorkout={setWorkout} setExercisePopup={setExercisePopup}/> : <></>  }
+          {exercisePopup && externalExercises ? <AddExercisePopup exercises={externalExercises} setExercisePopup={setExercisePopup} setWorkoutExercises={setWorkoutExercises} getMode={getMode}  workout={workout} setWorkout={setWorkout}/> : <></> }
         </div>
       
        {plan && workoutExercises || (mode === 'edit' || mode === 'view') && workout || mode === "new" ? genDisplay() : <h1>Loading...</h1>}

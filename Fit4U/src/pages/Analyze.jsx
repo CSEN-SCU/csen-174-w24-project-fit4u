@@ -29,13 +29,12 @@ const Analyze = () => {
   const [analyze, setAnalyze] = useState([])
   const [currentMuscle, setCurrentMuscle] = useState('')
   const [selectedExercise, setSelectedExercise] = useState(null)
-  const [days, setDays] = useState(7)
 
-  const getData = async() => {calls.getAnalyze(setAnalyze, days)}
+  const getData = () => {calls.getAnalyze(setAnalyze)}
 
   useEffect(() => {
     getData()
-  }, [days])
+  }, [])
 
   const genMuscleSelect = () => {
     if(analyze){
@@ -59,7 +58,7 @@ const Analyze = () => {
     if(analyze && currentMuscle !== ""){
       let obj = analyze[currentMuscle]
       return (
-        <select onChange={(e) => setSelectedExercise(e.target.value)} defaultChecked="Select Exercise" className='exercise-select'>
+        <select onChange={(e) => setSelectedExercise(e.target.value)} defaultChecked="Select Exercise" value={selectedExercise} className='exercise-select'>
           <option value={null} selected={selectedExercise === null ? true : false} hidden={selectedExercise !== null ? true : false} disabled>Select Exercise</option>
           {obj.exercises.map((exercise, i) => 
             <option value={i}>{exercise.name}</option>
@@ -81,35 +80,12 @@ const Analyze = () => {
     }
   }
 
-  const daySelect = () => {
-    if(analyze && currentMuscle){
-      return(
-        <div className='day-select'>
-          <button onClick={() => {setDays(7)
-            //setSelectedExercise(null)
-          }}>1W</button>
-          <button onClick={() => {setDays(30)
-            //setSelectedExercise(null)
-          }}>1M</button>
-          <button onClick={() => {setDays(365)
-            //setSelectedExercise(null)
-          }}>1Y</button>
-        </div>
-      )
-    }else{
-      return(
-        <></>
-      )
-      }
-  }
-
   return (
     <div>
       <h1>Analyze</h1>
       {genMuscleSelect()}
       {currentMuscle ? <h4>Avg. Rating for {currentMuscle}: {analyze[currentMuscle].avgRating} </h4> : <></>}
       {currentMuscle ? genExerciseSelect() : <></>}
-      {currentMuscle ? daySelect() : <></>}
       <div className='chart-wrapper'>{genCharts()}</div>
       
     </div>

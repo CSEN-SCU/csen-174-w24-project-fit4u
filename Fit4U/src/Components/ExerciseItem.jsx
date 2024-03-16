@@ -4,8 +4,7 @@ import SetItem from './SetItem';
 import filters from '../Hooks/sanitizeData';
 import Difficulty from './Difficulty';
 import ExerciseOptions from './ExerciseOptions';
-import { EllipsisHorizontalCircleIcon, HeartIcon, BookOpenIcon} from '@heroicons/react/24/solid';
-import ExerciseInfoPopup from './ExerciseInfoPopup';
+import { EllipsisHorizontalCircleIcon, HeartIcon } from '@heroicons/react/24/solid';
 
 const ExerciseItem = ({exercise, getDataStatus, dataExercises, setDataExercises, deleteExercise}) => {
 
@@ -16,7 +15,6 @@ const ExerciseItem = ({exercise, getDataStatus, dataExercises, setDataExercises,
   const [displaySets, setDisplaySets] = useState([])
   const [optionsOpen, setOptionsOpen] = useState(false)
   const [favorite, setFavorite] = useState(exercise.favorite)
-  const [infoPopup, setInfoPopup] = useState(false)
 
   const getUnits = () => {
     return unit
@@ -125,11 +123,10 @@ const ExerciseItem = ({exercise, getDataStatus, dataExercises, setDataExercises,
       <div className={favorite ? 'exercise-name-heart' : 'exercise-name'}>
         {favorite ? <div className='heart-icon'><HeartIcon EllipsisHorizontalCircleIcon height={28} width={28} color='#853835'/></div> : <></>}
         <h2>{exercise.name}</h2>
-        <button className='btn-clear' onClick={() => setOptionsOpen(!optionsOpen)}><EllipsisHorizontalCircleIcon height={28} width={28} color='#853835'/></button>
-        {optionsOpen ? <ExerciseOptions deleteExercise={deleteExercise} exercise={exercise} setFavoriteItem={setFavorite} favorite={favorite} setInfoPopup={setInfoPopup} setOptions={setOptionsOpen}/> : <></>}
-        {infoPopup ? <ExerciseInfoPopup exercise={exercise} setPopup={setInfoPopup} /> : <></>}
+        <button className='btn-clear' onClick={() => setOptionsOpen(!optionsOpen)}><EllipsisHorizontalCircleIcon height={28} width={28} margin={4} color='#853835'/></button>
+        {optionsOpen ? <ExerciseOptions deleteExercise={deleteExercise} exercise={exercise} setFavoriteItem={setFavorite} favorite={favorite}/> : <></>}
       </div>
-      <div className='info-container'> 
+      <div className='info-container'>
         <div className='exercise-info'>
           <p>Muscle: {exercise.muscle}</p>
           <p className='difficulty-wrapper'>Difficulty: <Difficulty rating={exercise.difficulty} /></p>

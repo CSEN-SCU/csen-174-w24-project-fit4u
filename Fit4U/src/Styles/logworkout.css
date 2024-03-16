@@ -88,7 +88,7 @@
     .log-workout-wrapper{
         display: flex;
         flex-direction: column;
-        width: 370px;
+        width: 270px;
         height: 733px;
         overflow-y: scroll;
         justify-content: start;
@@ -115,6 +115,5 @@
         overflow-y: scroll;
         height: 400px;
         background: white;
-        margin-left: 25px;
     }
 }
